@@ -568,11 +568,82 @@
     </div>
 
     <h3>二、相邻与触及范围 <span class="badge b-blue">Adjacency &amp; Reach</span></h3>
-    <ul>
-      <li><b>相邻（Adjacent）</b>：两个六边形<b>共边</b>才算相邻。中间隔着河流格不算，除非你有桥或航海能力。</li>
-      <li><b>触及范围（Reach）</b>：等于你的航海等级。判定「可达」时可以跨过的河流格数。用航海把两块被河隔开的领地连起来，是常见的扩张手段。</li>
-      <li><b>桥</b>：跨越河流格，把两侧建筑连成一片。桥会影响「连片」的判定。</li>
-    </ul>
+    <p>这是全作最容易混的一对概念。记一句话就够：<b>「相邻」看共边，「够得着」看航海。</b></p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 680 238" role="img" aria-label="直接相邻与隔河可达">
+        <g stroke-width="1.6">
+          <!-- Row 1: 共边 -->
+          <polygon points="162,46 151,65.1 129,65.1 118,46 129,26.9 151,26.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+          <polygon points="206,46 195,65.1 173,65.1 162,46 173,26.9 195,26.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+          <!-- Row 2: 隔 1 河 -->
+          <polygon points="140,118 129,137.1 107,137.1 96,118 107,98.9 129,98.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+          <polygon points="184,118 173,137.1 151,137.1 140,118 151,98.9 173,98.9" fill="#7fb3d5" stroke="#3d7ea6"/>
+          <polygon points="228,118 217,137.1 195,137.1 184,118 195,98.9 217,98.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+          <!-- Row 3: 隔 2 河 -->
+          <polygon points="118,190 107,209.1 85,209.1 74,190 85,170.9 107,170.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+          <polygon points="162,190 151,209.1 129,209.1 118,190 129,170.9 151,170.9" fill="#7fb3d5" stroke="#3d7ea6"/>
+          <polygon points="206,190 195,209.1 173,209.1 162,190 173,170.9 195,170.9" fill="#7fb3d5" stroke="#3d7ea6"/>
+          <polygon points="250,190 239,209.1 217,209.1 206,190 217,170.9 239,170.9" fill="#6f9e5a" stroke="#2f6b2f"/>
+        </g>
+        <g font-size="11" fill="#fff" text-anchor="middle">
+          <text x="140" y="50">陆</text><text x="184" y="50">陆</text>
+          <text x="118" y="122">陆</text><text x="162" y="122">河</text><text x="206" y="122">陆</text>
+          <text x="96" y="194">陆</text><text x="140" y="194">河</text><text x="184" y="194">河</text><text x="228" y="194">陆</text>
+        </g>
+        <g font-family="Georgia,serif" font-size="13.5" font-weight="bold" fill="#1e3a63">
+          <text x="292" y="42">直接相邻（共边）</text>
+          <text x="292" y="114">隔 1 条河</text>
+          <text x="292" y="186">隔 2 条河</text>
+        </g>
+        <g font-size="11.5" fill="#6d6357">
+          <text x="292" y="59">建城 / 拿魔力 / 升级减费 —— 都只看这个</text>
+          <text x="292" y="131">航海 ≥ 1 就能在那里盖房，但两格仍不算相邻</text>
+          <text x="292" y="203">航海 ≥ 2 才能盖房</text>
+        </g>
+      </svg>
+      <figcaption>绿色 = 陆地格，蓝色 = 河流格。「相邻」只认共边，跨河要靠桥；「够得着」才看航海。</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>概念</th><th>英文</th><th>怎么判定</th><th>用在哪里</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>直接相邻</b></td><td class="mono">Adjacent</td>
+            <td>两个六边形<b>共边</b>；或通过<b>桥</b>跨越河流格相连</td>
+            <td>建城连片 · 别人在你旁边盖房你能拿魔力 · 升级公会减费</td>
+          </tr>
+          <tr>
+            <td><b>触及范围</b></td><td class="mono">Reach</td>
+            <td>所有相邻格 ＋ <b>隔着不超过「航海等级」条河流格</b>相连的格</td>
+            <td>能不能在那里<b>改造地形 / 建建筑</b></td>
+          </tr>
+          <tr>
+            <td><b>航海</b></td><td class="mono">Sailing</td>
+            <td>0–3 级，等级 = 触及范围 = 能跨过的河流格数</td>
+            <td>把被河隔开的领地连起来、跨岛扩张</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2">
+      <div class="tile blue"><h4><span class="ico">1</span>直接相邻：共边才算</h4>
+        <p>两个六边形<b>共用一条边</b>才叫相邻。中间夹着河流格就<b>不算</b>相邻——哪怕看起来紧挨着。</p></div>
+      <div class="tile gold"><h4><span class="ico">2</span>隔河：靠航海够过去</h4>
+        <p>中间隔着河流格时，只要<b>河流格数 ≤ 你的航海等级</b>，两格就互相「够得着」。这是<strong>间接</strong>连通，不等于相邻。</p></div>
+      <div class="tile green"><h4><span class="ico">3</span>桥：把间接变成直接</h4>
+        <p>造一座桥跨过河流格，两侧立刻算<b>相邻</b>。桥和航海的作用不同：桥给的是「相邻」，航海给的是「够得着」。</p></div>
+      <div class="tile red"><h4><span class="ico">!</span>为什么必须分清</h4>
+        <p><b>建城</b>要求建筑「直接相邻」，隔河的两块地不能算进同一座城；<br>
+        但<b>盖房子</b>只要目标格在触及范围内，隔 1–2 条河也行。</p></div>
+    </div>
+
+    <div class="note warn"><span class="lbl">最容易记错的点</span>
+      <p>「隔 1 条河 + 航海 1 级」能让你<b>在那里盖房子</b>，但这两个建筑<b>不算相邻</b>——不能用来建城，也不会互相触发魔力。
+      想让它们真正连成一片，得造桥。</p>
+    </div>
 
     <h3>三、建城 <span class="badge b-gold">Found a City</span></h3>
     <ul>
@@ -731,6 +802,23 @@
           <tr><td>奖励</td><td>城市片（分数 + 一次性资源 + <b>1 把城市钥匙</b>）</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <h3>相邻 vs 触及范围</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>你要做的事</th><th>看哪个概念</th><th>隔河算不算</th></tr></thead>
+        <tbody>
+          <tr><td>在那里改造地形 / 建建筑</td><td><b>触及范围 Reach</b>（= 航海等级）</td><td>隔 ≤ 航海等级 条河就行</td></tr>
+          <tr><td>建城（凑 4 个相邻建筑）</td><td><b>直接相邻 Adjacent</b>（共边 / 桥）</td><td>不算，除非有桥</td></tr>
+          <tr><td>别人在旁边盖房，你拿魔力</td><td><b>直接相邻</b></td><td>不算，除非有桥</td></tr>
+          <tr><td>升级公会时减 3 钱</td><td><b>直接相邻</b>（与其他玩家建筑）</td><td>不算，除非有桥</td></tr>
+          <tr><td>终局「最大连片」计分</td><td><b>直接相邻</b>（建筑 + 桥）</td><td>不算，除非有桥</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><span class="lbl">一句话</span>
+      <p><b>航海只解决「能不能在那里盖」，桥才解决「算不算连在一起」。</b></p>
     </div>
 
     <h3>学科里程碑</h3>
