@@ -430,14 +430,14 @@ body.tut-open{overflow:hidden}
 .shake{animation:shk .34s ease}
 @keyframes shk{0%,100%{transform:translateX(0)}22%{transform:translateX(-5px)}55%{transform:translateX(5px)}80%{transform:translateX(-3px)}}
 
-.tut-sim{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.tut-sim{padding:12px 14px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
 .sim-res{display:flex;flex-wrap:wrap;gap:7px}
 .sim-chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:12.5px;color:var(--muted)}
 .sim-chip i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
 .sim-chip b{color:var(--ink);font-size:13.5px;font-family:var(--mono)}
 .sim-chip.ghost{font-size:11.5px;background:transparent;border-style:dashed}
 
-.sim-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 258px;gap:12px;align-items:start}
+.sim-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 228px;gap:10px;align-items:start}
 .sim-side{display:flex;flex-direction:column;gap:5px;min-width:0}
 .sim-cap{
   font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;
@@ -446,30 +446,30 @@ body.tut-open{overflow:hidden}
 .sim-cap .en{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--line-2);font-size:9.5px}
 
 .sim-bowls{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.bowl{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 3px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2)}
+.bowl{display:flex;flex-direction:column;align-items:center;gap:0;padding:4px 3px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2)}
 .bowl.hot{border-color:color-mix(in srgb,var(--purple) 55%,transparent);background:var(--purple-soft)}
 .bowl .bname{font-size:10px;color:var(--muted);letter-spacing:.04em}
 .bowl .bval{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--purple);line-height:1.15}
 .bowl .bsub{font-size:9.5px;color:var(--muted)}
 .bowl.hot .bsub{color:var(--purple);font-weight:700}
 
-.sim-map{border:1px solid var(--line);border-radius:12px;background:var(--panel-2);padding:6px;display:flex;flex-direction:column;align-items:center}
-.sim-map svg{width:100%;max-width:430px;height:auto}
+.sim-map{border:1px solid var(--line);border-radius:12px;background:var(--panel-2);padding:4px;display:flex;flex-direction:column;align-items:center}
+.sim-map svg{width:100%;max-width:296px;height:auto}
 .sim-leg{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;padding:4px 0 2px}
 .sim-leg .lg{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--muted)}
 .sim-leg .lg i{width:9px;height:9px;border-radius:3px}
-#simRing{width:100%;max-width:256px;height:auto;display:block;margin:0 auto;
+#simRing{width:100%;max-width:184px;height:auto;display:block;margin:0 auto;
   border:1px solid var(--line);border-radius:12px;background:var(--panel-2);padding:2px}
 
-.sim-disc{display:flex;flex-direction:column;gap:3px;border:1px solid var(--line);border-radius:11px;background:var(--panel-2);padding:8px 10px}
-.drow{display:flex;align-items:center;gap:8px;border-radius:7px;padding:2px 5px;transition:.16s}
+.sim-disc{display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:11px;background:var(--panel-2);padding:5px 8px}
+.drow{display:flex;align-items:center;gap:8px;border-radius:7px;padding:1px 5px;transition:.16s}
 .drow.on{background:color-mix(in srgb,var(--gold) 15%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 32%,transparent)}
 .dname{flex:0 0 66px;font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
 .dname i{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
 .drow.on .dname{color:var(--ink);font-weight:700}
 .dtrack{display:flex;gap:2px;flex:1;min-width:0}
 .dc{
-  flex:1 1 0;min-width:0;height:19px;border-radius:3px;background:var(--panel);
+  flex:1 1 0;min-width:0;height:13px;border-radius:3px;background:var(--panel);
   border:1px solid var(--line);display:grid;place-items:center;
   font-size:8.5px;font-style:normal;color:var(--line-2);font-family:var(--mono);
 }
@@ -479,6 +479,22 @@ body.tut-open{overflow:hidden}
 .dlv{flex:0 0 36px;text-align:right;font-size:11px;font-family:var(--mono);color:var(--muted)}
 .drow.on .dlv{color:var(--gold);font-weight:700}
 
+.sim-pa{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:5px}
+.pa{
+  display:flex;flex-direction:column;gap:0;text-align:left;padding:3px 7px;border-radius:8px;
+  border:1px solid var(--line);background:var(--panel);cursor:default;font-family:inherit;
+  opacity:.42;transition:.16s;
+}
+.pa .pc{font-family:var(--mono);font-size:11px;font-weight:700;line-height:1.3}
+.pa .pe{font-size:11px;color:var(--muted);line-height:1.35}
+.pa.power .pc{color:var(--purple)}
+.pa.book .pc{color:var(--gold)}
+.pa.on{opacity:1;cursor:pointer;background:var(--purple-soft);border-color:color-mix(in srgb,var(--purple) 45%,transparent);box-shadow:0 0 0 2px color-mix(in srgb,var(--purple) 18%,transparent)}
+.pa.on .pe{color:var(--ink-2)}
+.pa.on:hover{transform:translateY(-1px)}
+.pa.used{opacity:.85;background:var(--green-soft);border-color:color-mix(in srgb,var(--green) 42%,transparent);box-shadow:none}
+.pa.used .pc{color:var(--green)}
+
 .hex.clickable polygon{filter:drop-shadow(0 0 6px rgba(169,118,31,.75))}
 .hex.clickable{cursor:pointer}
 .pulse{animation:pl 1.3s ease-in-out infinite}
@@ -486,14 +502,14 @@ body.tut-open{overflow:hidden}
 .hex text{pointer-events:none;font-family:var(--sans)}
 #simRing text{font-family:var(--sans);pointer-events:none}
 
-.sim-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}
+.sim-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:6px}
 .sim-act{
-  display:flex;flex-direction:column;gap:2px;text-align:left;padding:9px 12px;border-radius:10px;
+  display:flex;flex-direction:column;gap:1px;text-align:left;padding:6px 9px;border-radius:9px;
   border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:default;
   font-family:inherit;opacity:.45;transition:.16s;
 }
-.sim-act .al{font-size:13.5px;font-weight:600;color:var(--ink-2)}
-.sim-act .as{font-size:11px;font-family:var(--mono);color:var(--muted)}
+.sim-act .al{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.sim-act .as{font-size:10px;font-family:var(--mono);color:var(--muted)}
 .sim-act.on{opacity:1;cursor:pointer;border-color:color-mix(in srgb,var(--blue) 45%,transparent);background:var(--blue-soft);box-shadow:0 0 0 2px color-mix(in srgb,var(--blue) 16%,transparent)}
 .sim-act.on .al{color:var(--blue)}
 .sim-act.on:hover{transform:translateY(-1px)}

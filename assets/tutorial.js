@@ -37,6 +37,18 @@
     { key: "medicine",    zh: "医学",   color: "#8a8577" }
   ];
 
+  /* 版图上的「魔力行动 / 书行动」（官方 Appendix VI；每局随机取 6 张，每个每轮限用一次） */
+  var PACTIONS = [
+    { id: "pa_scholar", kind: "power", cost: "3 魔力", eff: "得 1 名学者" },
+    { id: "pa_tools",   kind: "power", cost: "4 魔力", eff: "得 2 个工具" },
+    { id: "pa_build",   kind: "power", cost: "4 魔力", eff: "免费改造 + 建造 1 次（含 1 把免费铲）" },
+    { id: "pa_bridge",  kind: "power", cost: "3 魔力", eff: "建 1 座桥" },
+    { id: "ba_coins",   kind: "book",  cost: "2 书",   eff: "得 6 钱" },
+    { id: "ba_guild",   kind: "book",  cost: "2 书",   eff: "免费把 1 个工坊升成公会" },
+    { id: "ba_points",  kind: "book",  cost: "2 书",   eff: "每个公会得 2 分" },
+    { id: "ba_terra",   kind: "book",  cost: "3 书",   eff: "免费改造 + 建造 1 次（含 3 把免费铲）" }
+  ];
+
   /* ---------------- 初始局面 ---------------- */
   function freshState() {
     return {
@@ -54,6 +66,7 @@
       innovations: 0,
       hasGuild: false,
       passed: false,
+      paUsed: [],
       hexes: [
         { id: "h1", q: 0,  r: 0,  terrain: "Forest",    mine: "workshop", foe: false },
         { id: "h2", q: 1,  r: -1, terrain: "Forest",    mine: null,       foe: false },
@@ -73,7 +86,7 @@
     { id: "buildWorkshop",label: "建工坊",                sub: "1 工具 + 2 钱" },
     { id: "upgradeGuild", label: "升级为公会",            sub: "2 工具 + 3 钱" },
     { id: "scholar",      label: "派遣学者",              sub: "1 学者" },
-    { id: "powerAction",  label: "魔力行动：换 1 把铲子", sub: "2 魔力" },
+    { id: "powerAction",  label: "魔力 / 书行动",          sub: "从下方选一张" },
     { id: "innovation",   label: "研发创造",              sub: "5 本书" },
     { id: "oppBuild",     label: "模拟：对手在你旁边盖房", sub: "演示" },
     { id: "pass",         label: "跳过 Pass",             sub: "结束本轮" },
@@ -96,7 +109,7 @@
         "<b>资源条</b>：工具、钱、学者、书，以及当前分数。",
         "<b>迷你地图</b>：绿色是<b>你的家园地形「森林」</b>，你的起始工坊已经在正中间那格。注意左边那格森林上有一个<b>对手的工坊</b>。",
         "<b>地形环</b>：改造地形的费用<b>只看这个环</b>，跟地图上隔几格完全无关。环上相邻 = 1 把铲子，隔一格 = 2 把，隔两格 = 3 把。",
-        "<b>魔力碗</b>与<b>学科轨道</b>：后面几步会用到。"
+        "<b>魔力碗</b>、<b>学科轨道</b>，以及最下面的<b>魔力行动 / 书行动</b>选项卡：后面几步都会用到。"
       ],
       btn: "下一步", allow: [], hex: null
     },
@@ -165,17 +178,17 @@
         "注意看：学者的标记会停在哪一格，以及魔力碗接下来怎么变。"
       ],
       expect: "scholar", allow: ["scholar"], hex: null, disc: "engineering",
-      done: "工程学 <b>0 → 2 级</b>（看学科轨道上工程学那一行的深色进度）。途中经过奖励格，获得 2 魔力。这次<b>碗 I 已经空了</b>，所以魔力是<b>从碗 II 推到碗 III</b>：变成 0 / 10 / 2。碗 III 终于有魔力了！"
+      done: "工程学 <b>0 → 2 级</b>（看学科轨道上工程学那一行的深色进度）。途中经过奖励格，获得 3 魔力。这次<b>碗 I 已经空了</b>，所以魔力是<b>从碗 II 推到碗 III</b>：变成 0 / 9 / 3。碗 III 终于有魔力了！"
     },
     {
       badge: "行动 ④", title: "发动魔力行动：花掉碗 III 的魔力",
       text: [
-        "现在碗 III 有 2 个魔力，可以花了。",
-        "点击「<b>魔力行动：换 1 把铲子</b>」。",
-        "观察：魔力从<b>碗 III 推回了碗 I</b>——花掉的魔力不会消失，而是回到起点重新循环。"
+        "现在碗 III 有 3 个魔力，可以花了。",
+        "看最下面的「<b>魔力行动 / 书行动</b>」选项卡——这就是版图边上那一排公共行动，每个<b>每轮只能被任意一名玩家用一次</b>。",
+        "点击<b>高亮的那张卡</b>（花 3 魔力换 1 名学者）。"
       ],
-      expect: "powerAction", allow: ["powerAction"], hex: null, disc: "engineering",
-      done: "花掉 2 魔力，换来 1 把铲子（存着，以后改造地形用）。魔力碗回到 <b>2 / 10 / 0</b>。"
+      expect: "powerAction", allow: [], highlight: "powerAction", pa: "pa_scholar", disc: "engineering", hex: null,
+      done: "花掉 3 魔力，换回 <b>1 名学者</b>。魔力从碗 III <b>推回了碗 I</b>：现在是 3 / 9 / 0。花掉的魔力不会消失，而是回到起点重新循环。"
     },
     {
       badge: "行动 ⑤", title: "研发创造：本作的构筑核心",
@@ -257,6 +270,8 @@
             '</div>' +
             '<div class="sim-cap">学科轨道 <span class="en">Disciplines</span></div>' +
             '<div class="sim-disc" id="simDisc"></div>' +
+            '<div class="sim-cap">魔力行动 · 书行动 <span class="en">Power &amp; Book Actions — 每个每轮限用一次</span></div>' +
+            '<div class="sim-pa" id="simPA"></div>' +
             '<div class="sim-acts" id="simActs"></div>' +
           '</section>' +
         '</div>' +
@@ -282,6 +297,7 @@
     el.leg = $("simLeg");
     el.ring = $("simRing");
     el.disc = $("simDisc");
+    el.pa = $("simPA");
     el.acts = $("simActs");
     el.next = $("tutNext");
     el.tip = $("tutTip");
@@ -310,6 +326,11 @@
       var g = e.target.closest ? e.target.closest("[data-hex]") : null;
       if (!g) return;
       hexHit(g.getAttribute("data-hex"));
+    });
+    el.pa.addEventListener("click", function (e) {
+      var c = e.target.closest ? e.target.closest("[data-pa]") : null;
+      if (!c || c.getAttribute("disabled") !== null) return;
+      paHit(c.getAttribute("data-pa"));
     });
   }
 
@@ -418,6 +439,20 @@
     }).join("");
   }
 
+  /* ---------------- 渲染：魔力 / 书行动 ---------------- */
+  function renderPA() {
+    var step = STEPS[idx];
+    var need = step.pa;
+    el.pa.innerHTML = PACTIONS.map(function (a) {
+      var on = need === a.id;
+      var used = (S.paUsed.indexOf(a.id) !== -1) || (on && locked);
+      var dis = !on || locked;
+      return '<button class="pa ' + a.kind + (on ? " on" : "") + (used ? " used" : "") + '"' +
+        (dis ? ' disabled' : ' data-pa="' + a.id + '"') + '>' +
+        '<span class="pc">' + a.cost + '</span><span class="pe">' + a.eff + '</span></button>';
+    }).join("");
+  }
+
   /* ---------------- 渲染：资源 / 魔力碗 / 行动 ---------------- */
   function renderRes() {
     var items = [
@@ -447,8 +482,9 @@
     var allow = step.allow || [];
     el.acts.innerHTML = ACTIONS.map(function (a) {
       var ok = allow.indexOf(a.id) !== -1;
+      var hi = ok || step.highlight === a.id;
       var used = step.expect === a.id && locked;
-      return '<button class="sim-act' + (ok ? " on" : "") + (used ? " used" : "") + '"' +
+      return '<button class="sim-act' + (hi ? " on" : "") + (used ? " used" : "") + '"' +
         (ok && !locked ? ' data-act="' + a.id + '"' : " disabled") + '>' +
         '<span class="al">' + a.label + '</span><span class="as">' + a.sub + '</span></button>';
     }).join("");
@@ -471,14 +507,27 @@
       el.fb.innerHTML = "";
     }
 
-    renderRes(); renderBowls(); renderMap(); renderRing(); renderDisc(); renderActs();
+    renderRes(); renderBowls(); renderMap(); renderRing(); renderDisc(); renderPA(); renderActs();
 
     var needAct = !!step.expect && !locked;
     var needHex = !!step.hex && !locked;
-    el.next.disabled = needAct || needHex;
+    var needPA = !!step.pa && !locked;
+    el.next.disabled = needAct || needHex || needPA;
     el.next.textContent = step.btn || (idx >= STEPS.length - 1 ? "完成并关闭" : "下一步");
     el.tip.textContent = needHex ? "请在右侧地图上点击高亮的那格"
+      : needPA ? "请在下方「魔力行动 / 书行动」里点击高亮的那张卡"
       : needAct ? "请点击上方高亮的行动按钮" : "";
+
+    /* 把高亮的目标滚进视野，避免被折叠在可视区之外 */
+    if (needHex || needPA || needAct) {
+      var tgt = needHex ? el.map.querySelector(".hex.clickable")
+        : needPA ? el.pa.querySelector(".pa.on")
+        : el.acts.querySelector(".sim-act.on");
+      if (tgt && tgt.scrollIntoView) {
+        try { tgt.scrollIntoView({ block: "nearest" }); }
+        catch (err) { tgt.scrollIntoView(false); }
+      }
+    }
   }
 
   /* ---------------- 动作处理 ---------------- */
@@ -517,7 +566,7 @@
       if (S.scholars < 1) { buzz(); return; }
       S.scholars -= 1;
       S.disc.engineering = 2;
-      gainPower(2);
+      gainPower(3);
     } else if (id === "powerAction") {
       if (spendPower(2) < 2) { buzz(); return; }
       S.freeSpades += 1;
@@ -548,6 +597,21 @@
       S.freeSpades = 0;
     }
     h.terrain = "Forest";
+    locked = true;
+    render();
+  }
+
+  function paHit(id) {
+    var step = STEPS[idx];
+    if (!step.pa || locked) return;
+    if (step.pa !== id) { buzz(); return; }
+    if (id === "pa_scholar") {
+      if (spendPower(3) < 3) { buzz(); return; }
+      S.scholars += 1;
+      S.paUsed.push(id);
+    } else {
+      S.paUsed.push(id);
+    }
     locked = true;
     render();
   }
