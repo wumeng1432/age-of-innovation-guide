@@ -430,31 +430,61 @@ body.tut-open{overflow:hidden}
 .shake{animation:shk .34s ease}
 @keyframes shk{0%,100%{transform:translateX(0)}22%{transform:translateX(-5px)}55%{transform:translateX(5px)}80%{transform:translateX(-3px)}}
 
-.tut-sim{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.sim-res{display:flex;flex-wrap:wrap;gap:8px}
-.sim-chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--muted)}
+.tut-sim{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.sim-res{display:flex;flex-wrap:wrap;gap:7px}
+.sim-chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:12.5px;color:var(--muted)}
 .sim-chip i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
-.sim-chip b{color:var(--ink);font-size:14px;font-family:var(--mono)}
-.sim-chip.ghost{font-size:12px;background:transparent;border-style:dashed}
+.sim-chip b{color:var(--ink);font-size:13.5px;font-family:var(--mono)}
+.sim-chip.ghost{font-size:11.5px;background:transparent;border-style:dashed}
 
-.sim-bowls{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.bowl{display:flex;flex-direction:column;align-items:center;gap:1px;padding:10px 6px;border-radius:12px;border:1px solid var(--line);background:var(--panel-2)}
+.sim-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 258px;gap:12px;align-items:start}
+.sim-side{display:flex;flex-direction:column;gap:5px;min-width:0}
+.sim-cap{
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;
+  display:flex;align-items:baseline;gap:6px;padding-left:2px;
+}
+.sim-cap .en{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--line-2);font-size:9.5px}
+
+.sim-bowls{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bowl{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 3px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2)}
 .bowl.hot{border-color:color-mix(in srgb,var(--purple) 55%,transparent);background:var(--purple-soft)}
-.bowl .bname{font-size:11px;color:var(--muted);letter-spacing:.06em}
-.bowl .bval{font-family:var(--mono);font-size:23px;font-weight:700;color:var(--purple);line-height:1.15}
-.bowl .bsub{font-size:10.5px;color:var(--muted)}
+.bowl .bname{font-size:10px;color:var(--muted);letter-spacing:.04em}
+.bowl .bval{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--purple);line-height:1.15}
+.bowl .bsub{font-size:9.5px;color:var(--muted)}
 .bowl.hot .bsub{color:var(--purple);font-weight:700}
 
 .sim-map{border:1px solid var(--line);border-radius:12px;background:var(--panel-2);padding:6px;display:flex;flex-direction:column;align-items:center}
 .sim-map svg{width:100%;max-width:430px;height:auto}
-.sim-mapleg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:4px 0 2px}
-.sim-mapleg .lg{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
-.sim-mapleg .lg i{width:10px;height:10px;border-radius:3px}
+.sim-leg{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;padding:4px 0 2px}
+.sim-leg .lg{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--muted)}
+.sim-leg .lg i{width:9px;height:9px;border-radius:3px}
+#simRing{width:100%;max-width:256px;height:auto;display:block;margin:0 auto;
+  border:1px solid var(--line);border-radius:12px;background:var(--panel-2);padding:2px}
+
+.sim-disc{display:flex;flex-direction:column;gap:3px;border:1px solid var(--line);border-radius:11px;background:var(--panel-2);padding:8px 10px}
+.drow{display:flex;align-items:center;gap:8px;border-radius:7px;padding:2px 5px;transition:.16s}
+.drow.on{background:color-mix(in srgb,var(--gold) 15%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 32%,transparent)}
+.dname{flex:0 0 66px;font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.dname i{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.drow.on .dname{color:var(--ink);font-weight:700}
+.dtrack{display:flex;gap:2px;flex:1;min-width:0}
+.dc{
+  flex:1 1 0;min-width:0;height:19px;border-radius:3px;background:var(--panel);
+  border:1px solid var(--line);display:grid;place-items:center;
+  font-size:8.5px;font-style:normal;color:var(--line-2);font-family:var(--mono);
+}
+.dc.ms{border-color:color-mix(in srgb,var(--purple) 42%,transparent);color:var(--purple);font-weight:700}
+.dc.fill{background:var(--c);border-color:var(--c);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+.dc.cur{box-shadow:0 0 0 2px color-mix(in srgb,var(--gold) 65%,transparent)}
+.dlv{flex:0 0 36px;text-align:right;font-size:11px;font-family:var(--mono);color:var(--muted)}
+.drow.on .dlv{color:var(--gold);font-weight:700}
+
 .hex.clickable polygon{filter:drop-shadow(0 0 6px rgba(169,118,31,.75))}
 .hex.clickable{cursor:pointer}
 .pulse{animation:pl 1.3s ease-in-out infinite}
 @keyframes pl{0%,100%{opacity:.35}50%{opacity:1}}
 .hex text{pointer-events:none;font-family:var(--sans)}
+#simRing text{font-family:var(--sans);pointer-events:none}
 
 .sim-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}
 .sim-act{
@@ -475,12 +505,21 @@ body.tut-open{overflow:hidden}
 .tut-tip{font-size:12.5px;color:var(--muted)}
 .tut-tip.shake{color:var(--red);font-weight:600}
 
+@media (max-width:1080px){
+  .sim-grid{grid-template-columns:1fr}
+  .sim-side{flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:8px}
+  .sim-side .sim-cap{flex:1 1 100%}
+  #simRing{max-width:210px;margin:0}
+  .sim-side .sim-bowls{flex:1 1 210px}
+}
 @media (max-width:880px){
   .tut{padding:0}
   .tut-panel{max-height:100vh;border-radius:0;width:100%}
   .tut-body{grid-template-columns:1fr}
   .tut-coach{border-right:0;border-bottom:1px solid var(--line)}
   .sim-map svg{max-width:100%}
+  .dname{flex:0 0 52px;font-size:11px}
+  .dc{height:16px;font-size:7.5px}
   .tut-tip{display:none}
 }
 @media print{.tut{display:none}}

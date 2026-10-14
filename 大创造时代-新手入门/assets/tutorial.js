@@ -17,6 +17,26 @@
     Plains:    { name: "平原", color: "#cfd98a", ink: "#3b342b" }
   };
 
+  /* 官方 Terraforming Circle（地形环）：
+     沙漠 – 平原 – 沼泽 – 湖泊 – 森林 – 山脉 – 荒地 – (回到沙漠)
+     以「森林」为家园地形时，顺时针依次为：山脉1 / 荒地2 / 沙漠3 / 平原3 / 沼泽2 / 湖泊1 */
+  var RING = [
+    { t: "Forest",    cost: 0 },
+    { t: "Mountain",  cost: 1 },
+    { t: "Wasteland", cost: 2 },
+    { t: "Desert",    cost: 3 },
+    { t: "Plains",    cost: 3 },
+    { t: "Swamp",     cost: 2 },
+    { t: "Lake",      cost: 1 }
+  ];
+
+  var DISCS = [
+    { key: "banking",     zh: "银行学", color: "#d9a621" },
+    { key: "law",         zh: "法学",   color: "#2c5488" },
+    { key: "engineering", zh: "工程学", color: "#9b6b3a" },
+    { key: "medicine",    zh: "医学",   color: "#8a8577" }
+  ];
+
   /* ---------------- 初始局面 ---------------- */
   function freshState() {
     return {
@@ -30,11 +50,10 @@
       spadeRate: 3,           // 买 1 把铲子需要的工具
       freeSpades: 0,
       sailing: 0,
-      disc: 0,                // 工程学等级
+      disc: { banking: 0, law: 0, engineering: 0, medicine: 0 },
       innovations: 0,
       hasGuild: false,
       passed: false,
-      log: [],
       hexes: [
         { id: "h1", q: 0,  r: 0,  terrain: "Forest",    mine: "workshop", foe: false },
         { id: "h2", q: 1,  r: -1, terrain: "Forest",    mine: null,       foe: false },
@@ -67,7 +86,7 @@
       badge: "欢迎", title: "欢迎来到交互式教练模式",
       text: [
         "我会带你<b>亲手走完第 1 轮</b>：从收入、行动，一直到跳过和结算。每一步你都要点一下，点错了我会提醒你。",
-        "右侧是模拟桌面：<b>资源条、魔力碗、迷你地图、行动按钮</b>。放心随便点，点错不会有任何后果。"
+        "右侧是模拟桌面：<b>资源条、迷你地图、地形环、魔力碗、学科轨道、行动按钮</b>。放心随便点，点错不会有任何后果。"
       ],
       btn: "开始教程", allow: [], hex: null
     },
@@ -75,9 +94,9 @@
       badge: "认识桌面", title: "先看清你的模拟桌面",
       text: [
         "<b>资源条</b>：工具、钱、学者、书，以及当前分数。",
-        "<b>魔力碗</b>：I / II / III 三只碗，只有碗 III 的魔力能花。",
-        "<b>迷你地图</b>：绿色是<b>你的家园地形「森林」</b>，你的起始工坊已经在正中间那格。灰紫色是沼泽、棕色是山脉、蓝色是湖泊——它们都要先改造才能用。",
-        "注意左边那格森林上有一个<b>对手的工坊</b>，后面会用到它。"
+        "<b>迷你地图</b>：绿色是<b>你的家园地形「森林」</b>，你的起始工坊已经在正中间那格。注意左边那格森林上有一个<b>对手的工坊</b>。",
+        "<b>地形环</b>：改造地形的费用<b>只看这个环</b>，跟地图上隔几格完全无关。环上相邻 = 1 把铲子，隔一格 = 2 把，隔两格 = 3 把。",
+        "<b>魔力碗</b>与<b>学科轨道</b>：后面几步会用到。"
       ],
       btn: "下一步", allow: [], hex: null
     },
@@ -88,7 +107,7 @@
         "现在点击下面的「<b>领取收入</b>」。"
       ],
       expect: "income", allow: ["income"], hex: null,
-      done: "你获得了 <b>6 工具、6 钱、1 学者</b>（教学简化数值）。收入到手，就可以行动了。"
+      done: "你获得了 <b>8 工具、8 钱、1 学者</b>（教学简化数值）。收入到手，就可以行动了。"
     },
     {
       badge: "关键系统", title: "顺便认识魔力碗",
@@ -100,13 +119,14 @@
       btn: "下一步", allow: [], hex: null
     },
     {
-      badge: "行动 ①", title: "改造地形",
+      badge: "行动 ①", title: "改造地形：费用看「地形环」，不看地图",
       text: [
         "Phase II 开始，轮到你，你要执行 <b>1 个行动</b>。先做最基础的「改造地形与建造」。",
-        "请在迷你地图上点击那格<b>沼泽</b>（灰紫色，右侧中间）。"
+        "请在迷你地图上点击那格<b>沼泽</b>（灰紫色，右侧中间）。",
+        "先猜一下：它紧挨着你的工坊，要几把铲子？——答案在右侧的<b>地形环</b>上。"
       ],
-      allow: [], hex: "h3",
-      done: "改造完成：沼泽 → 森林。沼泽离森林只有 1 步，所以花了 <b>1 把铲子</b>；你没有免费铲，于是按兑换率花掉 <b>3 工具</b>。",
+      allow: [], hex: "h3", ringFocus: "Swamp",
+      done: "改造完成：沼泽 → 森林。费用<b>不是</b>按地图距离算的，而是看<b>地形环</b>：森林 → 湖泊 → 沼泽，在环上隔了 <b>2 格</b>，所以要 <b>2 把铲子</b>。你没有免费铲，于是按兑换率花掉 <b>6 工具</b>。",
       wrongHex: "点错了。现在要改造的是那格<b>沼泽</b>（灰紫色）。"
     },
     {
@@ -140,11 +160,12 @@
     {
       badge: "行动 ③", title: "派遣学者，推进学科",
       text: [
-        "点击「<b>派遣学者</b>」，把 1 名学者送到「工程学」轨道上。",
-        "学者沿途会经过带魔力的奖励格——注意看魔力碗接下来会怎么变。"
+        "看右侧的<b>学科轨道</b>：四条轨道各有 12 级，带数字的格子（3 / 5 / 7 / 12）是<b>魔力奖励格</b>。",
+        "点击「<b>派遣学者</b>」，把 1 名学者送到「<b>工程学</b>」轨道上，前进 2 级。",
+        "注意看：学者的标记会停在哪一格，以及魔力碗接下来怎么变。"
       ],
-      expect: "scholar", allow: ["scholar"], hex: null,
-      done: "工程学 0 → 2 级，途中获得 2 魔力。这次<b>碗 I 已经空了</b>，所以魔力是<b>从碗 II 推到碗 III</b>：变成 0 / 10 / 2。碗 III 终于有魔力了！"
+      expect: "scholar", allow: ["scholar"], hex: null, disc: "engineering",
+      done: "工程学 <b>0 → 2 级</b>（看学科轨道上工程学那一行的深色进度）。途中经过奖励格，获得 2 魔力。这次<b>碗 I 已经空了</b>，所以魔力是<b>从碗 II 推到碗 III</b>：变成 0 / 10 / 2。碗 III 终于有魔力了！"
     },
     {
       badge: "行动 ④", title: "发动魔力行动：花掉碗 III 的魔力",
@@ -153,7 +174,7 @@
         "点击「<b>魔力行动：换 1 把铲子</b>」。",
         "观察：魔力从<b>碗 III 推回了碗 I</b>——花掉的魔力不会消失，而是回到起点重新循环。"
       ],
-      expect: "powerAction", allow: ["powerAction"], hex: null,
+      expect: "powerAction", allow: ["powerAction"], hex: null, disc: "engineering",
       done: "花掉 2 魔力，换来 1 把铲子（存着，以后改造地形用）。魔力碗回到 <b>2 / 10 / 0</b>。"
     },
     {
@@ -182,8 +203,8 @@
         "所有玩家都跳过后，进入 Phase III。",
         "点击「<b>结算 Phase III</b>」：按当轮回合计分片与你的学科等级拿奖励分，并把版图上的公共行动翻回正面（重置）。"
       ],
-      expect: "settle", allow: ["settle"], hex: null,
-      done: "学科奖励 <b>+3 分</b>，公共行动已重置。第 1 轮正式结束。"
+      expect: "settle", allow: ["settle"], hex: null, disc: "engineering",
+      done: "学科奖励 <b>+3 分</b>（依据你在学科轨道上的等级），公共行动已重置。第 1 轮正式结束。"
     },
     {
       badge: "完成", title: "第 1 轮走完了 🎉",
@@ -224,9 +245,18 @@
           '</aside>' +
           '<section class="tut-sim">' +
             '<div class="sim-res" id="simRes"></div>' +
-            '<div class="sim-bowls" id="simBowls"></div>' +
-            '<div class="sim-map"><svg id="simMap" viewBox="-90 -100 240 200" role="img" aria-label="模拟地图"></svg>' +
-              '<div class="sim-mapleg" id="simLeg"></div></div>' +
+            '<div class="sim-grid">' +
+              '<div class="sim-map"><svg id="simMap" viewBox="-90 -100 240 200" role="img" aria-label="模拟地图"></svg>' +
+                '<div class="sim-leg" id="simLeg"></div></div>' +
+              '<div class="sim-side">' +
+                '<div class="sim-cap">地形环 <span class="en">Terraforming Circle</span></div>' +
+                '<svg id="simRing" viewBox="0 0 264 252" role="img" aria-label="地形环"></svg>' +
+                '<div class="sim-cap">魔力碗 <span class="en">Power</span></div>' +
+                '<div class="sim-bowls" id="simBowls"></div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="sim-cap">学科轨道 <span class="en">Disciplines</span></div>' +
+            '<div class="sim-disc" id="simDisc"></div>' +
             '<div class="sim-acts" id="simActs"></div>' +
           '</section>' +
         '</div>' +
@@ -250,6 +280,8 @@
     el.bowls = $("simBowls");
     el.map = $("simMap");
     el.leg = $("simLeg");
+    el.ring = $("simRing");
+    el.disc = $("simDisc");
     el.acts = $("simActs");
     el.next = $("tutNext");
     el.tip = $("tutTip");
@@ -281,7 +313,7 @@
     });
   }
 
-  /* ---------------- 渲染 ---------------- */
+  /* ---------------- 渲染：迷你地图 ---------------- */
   function hexPix(q, r) {
     return { x: 1.5 * R * q, y: HW * (r + q / 2) };
   }
@@ -293,14 +325,11 @@
     }
     return p.join(" ");
   }
-
   var BUILD_LABEL = { workshop: "工", guild: "公", school: "学", university: "大", palace: "宫" };
 
   function renderMap() {
     var step = STEPS[idx];
-    var svg = [];
-    var legend = [];
-    var seen = {};
+    var svg = [], legend = [], seen = {};
     for (var i = 0; i < S.hexes.length; i++) {
       var h = S.hexes[i];
       var c = hexPix(h.q, h.r);
@@ -309,8 +338,7 @@
       var clickable = step.hex === h.id && !locked;
       svg.push('<g class="hex' + (clickable ? " clickable" : "") + '" data-hex="' + h.id + '">');
       svg.push('<polygon points="' + hexPoints(c.x, c.y) + '" fill="' + t.color + '"' +
-        ' stroke="' + (native ? "#2f6b2f" : "#6b6157") + '" stroke-width="' + (native ? 2.4 : 1.2) + '"' +
-        (native ? ' stroke-dasharray="0"' : "") + '/>');
+        ' stroke="' + (native ? "#2f6b2f" : "#6b6157") + '" stroke-width="' + (native ? 2.4 : 1.2) + '"/>');
       svg.push('<text x="' + c.x + '" y="' + (c.y - 2) + '" text-anchor="middle" font-size="10.5" fill="' + t.ink + '" opacity="0.92">' + t.name + '</text>');
       if (h.mine) {
         svg.push('<circle cx="' + c.x + '" cy="' + (c.y + 14) + '" r="10" fill="#1e3a63"/>');
@@ -331,6 +359,66 @@
     }).join("") + '<span class="lg"><i style="background:#1e3a63"></i>你的建筑</span><span class="lg"><i style="background:#a23f2b"></i>对手建筑</span>';
   }
 
+  /* ---------------- 渲染：地形环 ---------------- */
+  function renderRing() {
+    var step = STEPS[idx];
+    var CX = 132, CY = 126, RR = 74, TR = 19, N = RING.length;
+    var out = [];
+    out.push('<circle cx="' + CX + '" cy="' + CY + '" r="' + (RR - TR - 4) + '" fill="none" stroke="#d2c4aa" stroke-width="1.2" stroke-dasharray="3 3"/>');
+    for (var i = 0; i < N; i++) {
+      var a = (-90 + i * (360 / N)) * Math.PI / 180;
+      var x = CX + RR * Math.cos(a), y = CY + RR * Math.sin(a);
+      var it = RING[i], t = TERRAIN[it.t];
+      var isNative = it.cost === 0;
+      var focus = step.ringFocus === it.t;
+      var done = focus && locked;
+
+      /* 相邻两格之间 = 1 铲 */
+      var ma = (-90 + (i + 0.5) * (360 / N)) * Math.PI / 180;
+      var mx = CX + RR * Math.cos(ma), my = CY + RR * Math.sin(ma);
+      out.push('<circle cx="' + mx.toFixed(1) + '" cy="' + my.toFixed(1) + '" r="5" fill="#fff" stroke="#c9a86a" stroke-width="1"/>');
+      out.push('<text x="' + mx.toFixed(1) + '" y="' + (my + 2.6).toFixed(1) + '" text-anchor="middle" font-size="6.6" fill="#a9843a">铲</text>');
+
+      if (focus) {
+        out.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (TR + 5) + '" fill="none" stroke="#a9761f" stroke-width="2.6" class="' + (done ? "" : "pulse") + '"/>');
+      }
+      out.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + TR + '" fill="' + t.color + '" stroke="' + (isNative ? "#2f6b2f" : "#8a7a5e") + '" stroke-width="' + (isNative ? 2.6 : 1.1) + '"/>');
+      out.push('<text x="' + x.toFixed(1) + '" y="' + (y + 5).toFixed(1) + '" text-anchor="middle" font-size="14" font-weight="bold" fill="' + t.ink + '">' + t.name.charAt(0) + '</text>');
+
+      if (!isNative) {
+        var lr = RR + TR + 11;
+        var lx = CX + lr * Math.cos(a), ly = CY + lr * Math.sin(a);
+        var ca = Math.cos(a);
+        var anc = ca > 0.35 ? "start" : (ca < -0.35 ? "end" : "middle");
+        out.push('<text x="' + lx.toFixed(1) + '" y="' + (ly + 3.6).toFixed(1) + '" text-anchor="' + anc + '" font-size="10.5" font-weight="bold" fill="' + (focus ? "#a9761f" : "#8a6a20") + '">' + it.cost + ' 铲</text>');
+      }
+    }
+    out.push('<text x="' + CX + '" y="' + (CY - 4) + '" text-anchor="middle" font-size="10" font-weight="bold" fill="#2f6b2f">家园地形</text>');
+    out.push('<text x="' + CX + '" y="' + (CY + 9) + '" text-anchor="middle" font-size="10" fill="#6d6357">森林</text>');
+    el.ring.innerHTML = out.join("");
+  }
+
+  /* ---------------- 渲染：学科轨道 ---------------- */
+  function renderDisc() {
+    var step = STEPS[idx];
+    el.disc.innerHTML = DISCS.map(function (d) {
+      var lv = S.disc[d.key] || 0;
+      var cells = "";
+      for (var i = 1; i <= 12; i++) {
+        var cls = "dc";
+        if (i <= lv) cls += " fill";
+        if (i === lv && lv > 0) cls += " cur";
+        if (i === 3 || i === 5 || i === 7 || i === 12) cls += " ms";
+        cells += '<i class="' + cls + '" style="--c:' + d.color + '">' + ((i === 3 || i === 5 || i === 7 || i === 12) ? i : "") + "</i>";
+      }
+      var on = (step.disc === d.key) ? " on" : "";
+      return '<div class="drow' + on + '"><span class="dname"><i style="background:' + d.color + '"></i>' + d.zh + '</span>' +
+        '<span class="dtrack">' + cells + '</span>' +
+        '<span class="dlv">' + (lv ? lv + " 级" : "0") + '</span></div>';
+    }).join("");
+  }
+
+  /* ---------------- 渲染：资源 / 魔力碗 / 行动 ---------------- */
   function renderRes() {
     var items = [
       ["工具", S.tools, "#8a8577"],
@@ -340,20 +428,17 @@
       ["分数", S.score, "#1e3a63"]
     ];
     el.res.innerHTML = items.map(function (it) {
-      return '<span class="sim-chip"><i style="background:' + it[2] + '"></i>' + it[0] +
-        '<b>' + it[1] + '</b></span>';
-    }).join("") + '<span class="sim-chip ghost">铲子兑换率 1 铲 = ' + S.spadeRate + ' 工具</span>' +
+      return '<span class="sim-chip"><i style="background:' + it[2] + '"></i>' + it[0] + '<b>' + it[1] + '</b></span>';
+    }).join("") +
+      '<span class="sim-chip ghost">1 铲 = ' + S.spadeRate + ' 工具</span>' +
       (S.freeSpades ? '<span class="sim-chip ghost">存着 ' + S.freeSpades + ' 把铲子</span>' : "");
   }
 
   function renderBowls() {
-    var names = ["碗 I", "碗 II", "碗 III"];
-    var sub = ["不可花", "过渡", "可花"];
+    var names = ["碗 I", "碗 II", "碗 III"], sub = ["不可花", "过渡", "可花"];
     el.bowls.innerHTML = names.map(function (n, i) {
-      return '<div class="bowl' + (i === 2 ? " hot" : "") + '">' +
-        '<span class="bname">' + n + '</span>' +
-        '<span class="bval">' + S.power[i] + '</span>' +
-        '<span class="bsub">' + sub[i] + '</span></div>';
+      return '<div class="bowl' + (i === 2 ? " hot" : "") + '"><span class="bname">' + n + '</span>' +
+        '<span class="bval">' + S.power[i] + '</span><span class="bsub">' + sub[i] + '</span></div>';
     }).join("");
   }
 
@@ -371,42 +456,33 @@
 
   function render() {
     var step = STEPS[idx];
-    el.bar.style.width = Math.round((idx) / (STEPS.length - 1) * 100) + "%";
+    el.bar.style.width = Math.round(idx / (STEPS.length - 1) * 100) + "%";
     el.stepNo.textContent = (idx + 1) + " / " + STEPS.length;
     el.badge.textContent = step.badge;
     el.title.textContent = step.title;
     el.text.innerHTML = step.text.map(function (p) { return "<p>" + p + "</p>"; }).join("");
 
-    if (step.expect && locked) {
+    if (locked && (step.expect || step.hex)) {
       el.fb.hidden = false;
       el.fb.className = "tut-fb ok";
-      el.fb.innerHTML = "<b class=\"fbl\">✓ 做对了</b>" + step.done;
-    } else if (step.hex && locked) {
-      el.fb.hidden = false;
-      el.fb.className = "tut-fb ok";
-      el.fb.innerHTML = "<b class=\"fbl\">✓ 做对了</b>" + step.done;
+      el.fb.innerHTML = '<b class="fbl">✓ 做对了</b>' + step.done;
     } else {
       el.fb.hidden = true;
       el.fb.innerHTML = "";
     }
 
-    renderRes();
-    renderBowls();
-    renderMap();
-    renderActs();
+    renderRes(); renderBowls(); renderMap(); renderRing(); renderDisc(); renderActs();
 
     var needAct = !!step.expect && !locked;
     var needHex = !!step.hex && !locked;
     el.next.disabled = needAct || needHex;
     el.next.textContent = step.btn || (idx >= STEPS.length - 1 ? "完成并关闭" : "下一步");
     el.tip.textContent = needHex ? "请在右侧地图上点击高亮的那格"
-      : needAct ? "请点击上方高亮的行动按钮"
-      : "";
+      : needAct ? "请点击上方高亮的行动按钮" : "";
   }
 
   /* ---------------- 动作处理 ---------------- */
   function gainPower(n) {
-    // 获得魔力：碗 I 有则 I→II；碗 I 空但碗 II 有则 II→III；全在碗 III 则无
     for (var i = 0; i < n; i++) {
       if (S.power[0] > 0) { S.power[0]--; S.power[1]++; }
       else if (S.power[1] > 0) { S.power[1]--; S.power[2]++; }
@@ -414,22 +490,12 @@
   }
   function spendPower(n) {
     var take = Math.min(n, S.power[2]);
-    S.power[2] -= take;
-    S.power[0] += take;
+    S.power[2] -= take; S.power[0] += take;
     return take;
   }
-  function spendTools(n) {
-    if (S.tools < n) return false;
-    S.tools -= n; return true;
-  }
-  function spendCoins(n) {
-    if (S.coins < n) return false;
-    S.coins -= n; return true;
-  }
-  function spendBooks(n) {
-    if (S.books < n) return false;
-    S.books -= n; return true;
-  }
+  function spendTools(n) { if (S.tools < n) return false; S.tools -= n; return true; }
+  function spendCoins(n) { if (S.coins < n) return false; S.coins -= n; return true; }
+  function spendBooks(n) { if (S.books < n) return false; S.books -= n; return true; }
 
   function hit(id) {
     var step = STEPS[idx];
@@ -437,35 +503,29 @@
     if (step.allow.indexOf(id) === -1) { buzz(); return; }
 
     if (id === "income") {
-      S.tools += 6; S.coins += 6; S.scholars += 1;
+      S.tools += 8; S.coins += 8; S.scholars += 1;
     } else if (id === "buildWorkshop") {
       if (!spendTools(1) || !spendCoins(2)) { buzz(); return; }
-      for (var i = 0; i < S.hexes.length; i++) {
-        if (S.hexes[i].id === "h3") S.hexes[i].mine = "workshop";
-      }
+      for (var i = 0; i < S.hexes.length; i++) if (S.hexes[i].id === "h3") S.hexes[i].mine = "workshop";
     } else if (id === "oppBuild") {
       gainPower(2);
     } else if (id === "upgradeGuild") {
       if (!spendTools(2) || !spendCoins(3)) { buzz(); return; }
-      for (var j = 0; j < S.hexes.length; j++) {
-        if (S.hexes[j].id === "h1") S.hexes[j].mine = "guild";
-      }
+      for (var j = 0; j < S.hexes.length; j++) if (S.hexes[j].id === "h1") S.hexes[j].mine = "guild";
       S.hasGuild = true;
     } else if (id === "scholar") {
       if (S.scholars < 1) { buzz(); return; }
       S.scholars -= 1;
-      S.disc = 2;
+      S.disc.engineering = 2;
       gainPower(2);
     } else if (id === "powerAction") {
       if (spendPower(2) < 2) { buzz(); return; }
       S.freeSpades += 1;
     } else if (id === "innovation") {
       if (!spendBooks(5)) { buzz(); return; }
-      S.innovations += 1;
-      S.score += 4;
+      S.innovations += 1; S.score += 4;
     } else if (id === "pass") {
-      S.score += 2;
-      S.passed = true;
+      S.score += 2; S.passed = true;
     } else if (id === "settle") {
       S.score += 3;
     }
@@ -476,19 +536,17 @@
   function hexHit(hid) {
     var step = STEPS[idx];
     if (!step.hex || locked) return;
-    if (step.hex !== hid) {
-      if (step.wrongHex) flashMsg(step.wrongHex);
-      else flashMsg("点错了，请点击高亮的那一格。");
-      return;
-    }
+    if (step.hex !== hid) { flashMsg(step.wrongHex || "点错了，请点击高亮的那一格。"); return; }
     var h = null;
     for (var i = 0; i < S.hexes.length; i++) if (S.hexes[i].id === hid) h = S.hexes[i];
     if (!h) return;
-    // 沼泽 → 森林，1 把铲子
-    var need = 1;
+    var need = 2;                                  // 森林 → 沼泽：地形环上隔 2 格
     if (S.freeSpades >= need) { S.freeSpades -= need; }
-    else if (!spendTools(S.spadeRate * (need - S.freeSpades))) { buzz(); return; }
-    else { S.freeSpades = 0; }
+    else {
+      var buy = need - S.freeSpades;
+      if (!spendTools(S.spadeRate * buy)) { buzz(); return; }
+      S.freeSpades = 0;
+    }
     h.terrain = "Forest";
     locked = true;
     render();
@@ -497,11 +555,10 @@
   function flashMsg(msg) {
     el.fb.hidden = false;
     el.fb.className = "tut-fb warn";
-    el.fb.innerHTML = "<b class=\"fbl\">✗ 再想想</b>" + msg;
-    var box = el.fb;
-    box.classList.remove("shake");
-    void box.offsetWidth;
-    box.classList.add("shake");
+    el.fb.innerHTML = '<b class="fbl">✗ 再想想</b>' + msg;
+    el.fb.classList.remove("shake");
+    void el.fb.offsetWidth;
+    el.fb.classList.add("shake");
   }
   function buzz() {
     el.tip.classList.remove("shake");
@@ -515,7 +572,6 @@
     idx = i;
     locked = false;
     el.fb.hidden = true;
-    // 教学简化：进入「研发创造」步骤前补足 5 本书
     if (STEPS[idx].expect === "innovation") S.books = Math.max(S.books, 5);
     render();
     var body = el.ov.querySelector(".tut-body");
@@ -540,10 +596,7 @@
   function bind() {
     var els = document.querySelectorAll("[data-tut]");
     for (var i = 0; i < els.length; i++) {
-      els[i].addEventListener("click", function (e) {
-        e.preventDefault();
-        start();
-      });
+      els[i].addEventListener("click", function (e) { e.preventDefault(); start(); });
     }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
