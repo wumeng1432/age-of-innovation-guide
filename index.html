@@ -16,8 +16,8 @@
     <h1 class="title">大创造时代 · 新手入门手册
       <span class="en">Age of Innovation</span>
     </h1>
-    <p class="lede">从零开始的规则教程 · 中英名词速查 · 20 个易村规点 · 速查索引 · 开局策略。
-    把 20 多页官方规则书压缩成一条能一口气读完的入门路线。</p>
+    <p class="lede">完整规则手册：九个行动 · 55 条中英名词 · 20 个易村规点 · 速查索引 · 开局策略 · 交互式教练模式。
+    <b>第一次玩？</b>建议先看 <a href="beginner.html">10 分钟新人入门</a>，再回来看这里。</p>
     <div class="chips">
       <span class="chip"><span class="dot"></span>1–5 人</span>
       <span class="chip"><span class="dot"></span>约 40 分钟 / 人</span>
@@ -26,11 +26,11 @@
       <span class="chip"><span class="dot"></span>2023 · Feuerland Spiele</span>
     </div>
     <div class="hero-actions">
-      <button class="btn primary" type="button" data-tut>▶ 开始教程（交互式）</button>
-      <a class="btn" href="#goal">文字版教程</a>
+      <a class="btn primary" href="beginner.html">第一次玩？看新人入门 →</a>
+      <button class="btn" type="button" data-tut>▶ 教练模式</button>
+      <a class="btn" href="#quickref">速查表</a>
       <a class="btn" href="#glossary">名词速查</a>
-      <a class="btn" href="#mistakes">避坑清单</a>
-      <a class="btn" href="#strategy">新手策略</a>
+      <a class="btn" href="#mistakes">易村规 20 点</a>
     </div>
   </div>
 </header>
@@ -40,6 +40,8 @@
   <div class="wrap topbar-inner">
     <a class="brand" href="#top">大创造时代<small>Beginner's Guide</small></a>
     <nav class="navlinks" id="navlinks">
+      <a href="beginner.html">新人入门</a>
+      <a href="#beginner">开局工具</a>
       <a href="#overview">概览</a>
       <a href="#goal">目标</a>
       <a href="#components">配件</a>
@@ -64,6 +66,8 @@
   <aside class="toc">
     <h4>目录</h4>
     <ol id="toclist">
+      <li><a href="beginner.html"><span class="num">★</span>新人入门</a></li>
+      <li><a href="#beginner"><span class="num">⚙</span>开局工具</a></li>
       <li><a href="#overview"><span class="num">01</span>三分钟了解</a></li>
       <li><a href="#goal"><span class="num">02</span>目标与胜负</a></li>
       <li><a href="#components"><span class="num">03</span>配件与桌面</a></li>
@@ -81,6 +85,64 @@
 
   <!-- ======================= MAIN ======================= -->
   <main>
+
+  <!-- ============ 新手专区 ============ -->
+  <section id="beginner" class="beginner-zone">
+    <div class="sec-head">
+      <span class="sec-num bz">TOOLS</span>
+      <h2>开局工具<span class="en">Before You Play · 摆盘清单 &amp; 速查卡</span></h2>
+    </div>
+    <p class="sec-sub">这一节是「开桌前」用的：照着清单摆盘，再把速查卡打印一张放在桌边。</p>
+
+    <div class="card cta" style="margin-bottom:22px">
+      <div class="cta-txt">
+        <h3>第一次玩？先看「10 分钟新人入门」</h3>
+        <p>本页是<b>完整规则手册</b>，内容偏全、偏细，适合会玩之后复习和查规则。
+        纯新人建议先去那个短页面——只讲第一局必须知道的事，看完就能上桌。</p>
+      </div>
+      <a class="btn primary" href="beginner.html">去看新人入门 →</a>
+    </div>
+
+    <div class="card bz-card">
+      <h3>① 开局清单<span style="font-weight:400;font-size:13.5px;color:var(--muted)">（可勾选，自动保存在本机）</span></h3>
+      <ul class="bz-check" id="bzCheck">
+        <li><label><input type="checkbox" data-ck="c1"><span>按人数选地图面（2 人用 2 人面，3–5 人用另一面）</span></label></li>
+        <li><label><input type="checkbox" data-ck="c2"><span>摆好本局的回合计分片与终局计分片</span></label></li>
+        <li><label><input type="checkbox" data-ck="c3"><span>摆出本局可抢的宫殿片（先升到宫殿的人先挑）</span></label></li>
+        <li><label><input type="checkbox" data-ck="c4"><span>每人分到：1 张计划板 + 1 个部族板块 + 1 张回合奖励片</span></label></li>
+        <li><label><input type="checkbox" data-ck="c5"><span>把 <b>12 枚魔力标记</b>分配到魔力碗 I / II</span></label></li>
+        <li><label><input type="checkbox" data-ck="c6"><span>拿 <b>7 名学者</b>、<b>3 座桥</b>，以及计划板标注的起始资源</span></label></li>
+        <li><label><input type="checkbox" data-ck="c7"><span>四条学科轨道 0 级各放 1 个起始标记</span></label></li>
+        <li><label><input type="checkbox" data-ck="c8"><span>按顺位放第一个工坊，再在第二个指定位置放一个</span></label></li>
+      </ul>
+      <div class="bz-progress"><i id="bzBar"></i><span id="bzText">0 / 8</span></div>
+    </div>
+
+    <div class="card bz-card" style="margin-bottom:22px">
+      <h3>② 新手最常问的 6 个问题</h3>
+      <details class="acc"><summary>一局要多久？</summary>
+        <div class="acc-body">官方标注约 40 分钟 / 人。3 人局约 2 小时，4–5 人常见 2.5–3.5 小时。<b>第一次玩建议预留 3 小时</b>，因为要边看规则边玩。</div>
+      </details>
+      <details class="acc"><summary>我该选哪个部族 / 哪种地形？</summary>
+        <div class="acc-body">第一次<b>别纠结</b>，按随机结果直接玩，把流程走顺比选到强组合重要得多。想主动挑的话，「发明家」（白送一张能力片）和「哲学家」（多给书）收益最直观。</div>
+      </details>
+      <details class="acc"><summary>第一轮到底该干什么？</summary>
+        <div class="acc-body">围绕三个目标之一展开即可：<b>① 宫殿 + 3~4 个工坊</b>（抢强力宫殿片）<b>② 学校 + 3~4 个工坊</b>（拿能力片，最容易达成）<b>③ 买 1 张创造片</b>（需要 5 本书，最好先有宫殿省 5 钱）。</div>
+      </details>
+      <details class="acc"><summary>为什么我有魔力却用不了？</summary>
+        <div class="acc-body">因为<b>只有魔力碗 III 的魔力能花</b>。碗 I、碗 II 的魔力必须先通过「获得魔力」一步步推到碗 III 才能用。这是新手最常见的卡点。</div>
+      </details>
+      <details class="acc"><summary>为什么我盖不了房子？</summary>
+        <div class="acc-body">依次检查三件事：<b>① 那格是不是你的家园地形</b>（不是就得先改造）；<b>② 是否在你的「触及范围」内</b>（隔河要看航海等级）；<b>③ 计划板上还有没有工坊库存</b>。</div>
+      </details>
+      <details class="acc"><summary>什么时候该「跳过」？</summary>
+        <div class="acc-body">本轮不想再行动时就可以跳过。<b>先跳过并不吃亏</b>：你能抢到最好的回合奖励片，而且会成为<b>下一轮的起始玩家</b>。代价是提前放弃本轮剩余的行动机会。</div>
+      </details>
+      <div class="note" style="margin-bottom:0"><span class="lbl">已经会玩了？</span>
+        <p>直接看 <a href="#mistakes">易村规 20 点</a> 和 <a href="#quickref">速查索引</a> 复习；开桌前用上面的「打印速查卡」打一张放桌边最省事。</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 概览 ============ -->
   <section id="overview">

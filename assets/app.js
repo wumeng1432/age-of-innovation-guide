@@ -234,4 +234,49 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+  /* ---------------- 新手专区：开局清单 ---------------- */
+  var bzCheck = document.getElementById("bzCheck");
+  if (bzCheck) {
+    var boxes = [].slice.call(bzCheck.querySelectorAll("input[data-ck]"));
+    var bar = document.getElementById("bzBar");
+    var txt = document.getElementById("bzText");
+
+    function loadCk() {
+      var saved = {};
+      try { saved = JSON.parse(localStorage.getItem("aoi-checklist") || "{}"); } catch (e) { saved = {}; }
+      boxes.forEach(function (b) { b.checked = !!saved[b.getAttribute("data-ck")]; });
+    }
+    function saveCk() {
+      var o = {};
+      boxes.forEach(function (b) { o[b.getAttribute("data-ck")] = b.checked; });
+      try { localStorage.setItem("aoi-checklist", JSON.stringify(o)); } catch (e) {}
+    }
+    function updBar() {
+      var n = 0;
+      boxes.forEach(function (b) { if (b.checked) n++; });
+      if (bar) bar.style.setProperty("--p", Math.round(n / boxes.length * 100) + "%");
+      if (txt) txt.textContent = n + " / " + boxes.length;
+    }
+    loadCk();
+    updBar();
+    bzCheck.addEventListener("change", function (e) {
+      var t = e.target;
+      if (t && t.getAttribute && t.getAttribute("data-ck")) { saveCk(); updBar(); }
+    });
+  }
+
+  /* ---------------- 打印速查卡 ---------------- */
+  var printCard = document.getElementById("printCard");
+  if (printCard) {
+    printCard.addEventListener("click", function () {
+      document.body.classList.add("printing-card");
+      var done = function () {
+        document.body.classList.remove("printing-card");
+        window.removeEventListener("afterprint", done);
+      };
+      window.addEventListener("afterprint", done);
+      window.print();
+      setTimeout(done, 2000);
+    });
+  }
 })();
