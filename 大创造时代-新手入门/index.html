@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大创造时代 Age of Innovation · 新手入门手册</title>
+<meta name="description" content="《大创造时代》(Age of Innovation) 新手向规则入门：教程、名词解释、易村规点、速查索引与策略起步。基于官方规则书与 BGA 官方维基整理。">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ======================= HERO ======================= -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="kicker">Terra Mystica 宇宙 · 独立作品</div>
+    <h1 class="title">大创造时代 · 新手入门手册
+      <span class="en">Age of Innovation</span>
+    </h1>
+    <p class="lede">从零开始的规则教程 · 中英名词速查 · 20 个易村规点 · 速查索引 · 开局策略。
+    把 20 多页官方规则书压缩成一条能一口气读完的入门路线。</p>
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>1–5 人</span>
+      <span class="chip"><span class="dot"></span>约 40 分钟 / 人</span>
+      <span class="chip"><span class="dot"></span>重度策略 · 区控</span>
+      <span class="chip"><span class="dot"></span>6 轮定胜负</span>
+      <span class="chip"><span class="dot"></span>2023 · Feuerland Spiele</span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn primary" type="button" data-tut>▶ 开始教程（交互式）</button>
+      <a class="btn" href="#goal">文字版教程</a>
+      <a class="btn" href="#glossary">名词速查</a>
+      <a class="btn" href="#mistakes">避坑清单</a>
+      <a class="btn" href="#strategy">新手策略</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= TOPBAR ======================= -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top">大创造时代<small>Beginner's Guide</small></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#overview">概览</a>
+      <a href="#goal">目标</a>
+      <a href="#components">配件</a>
+      <a href="#setup">设置</a>
+      <a href="#flow">流程</a>
+      <a href="#actions">行动</a>
+      <a href="#systems">系统</a>
+      <a href="#glossary">名词</a>
+      <a href="#mistakes">避坑</a>
+      <a href="#quickref">速查</a>
+      <a href="#strategy">策略</a>
+      <a href="#appendix">附录</a>
+    </nav>
+    <button class="btn tiny" type="button" data-tut title="交互式教练模式">▶ 教练模式</button>
+    <button class="icon-btn" id="themeBtn" title="切换深色 / 浅色" aria-label="切换主题">◐</button>
+  </div>
+</div>
+
+<div class="wrap layout" id="top">
+
+  <!-- ======================= TOC ======================= -->
+  <aside class="toc">
+    <h4>目录</h4>
+    <ol id="toclist">
+      <li><a href="#overview"><span class="num">01</span>三分钟了解</a></li>
+      <li><a href="#goal"><span class="num">02</span>目标与胜负</a></li>
+      <li><a href="#components"><span class="num">03</span>配件与桌面</a></li>
+      <li><a href="#setup"><span class="num">04</span>开局设置</a></li>
+      <li><a href="#flow"><span class="num">05</span>游戏流程</a></li>
+      <li><a href="#actions"><span class="num">06</span>九个行动</a></li>
+      <li><a href="#systems"><span class="num">07</span>六个关键系统</a></li>
+      <li><a href="#glossary"><span class="num">08</span>名词解释</a></li>
+      <li><a href="#mistakes"><span class="num">09</span>易村规 20 点</a></li>
+      <li><a href="#quickref"><span class="num">10</span>速查索引</a></li>
+      <li><a href="#strategy"><span class="num">11</span>新手策略</a></li>
+      <li><a href="#appendix"><span class="num">12</span>附录</a></li>
+    </ol>
+  </aside>
+
+  <!-- ======================= MAIN ======================= -->
+  <main>
+
+  <!-- ============ 01 概览 ============ -->
+  <section id="overview">
+    <div class="sec-head"><span class="sec-num">01</span><h2>三分钟了解这款游戏<span class="en">Overview</span></h2></div>
+    <p class="sec-sub">先建立整体印象，再抠细节。这一节读完，你就知道自己在桌面上要干什么了。</p>
+
+    <div class="card cta">
+      <div class="cta-txt">
+        <h3>第一次玩？先走一遍教练模式</h3>
+        <p>14 步交互式引导，带你亲手走完第 1 轮：<b>收入 → 行动 → 结算</b>。
+        有模拟地图、资源条和魔力碗，每一步都要你点对了才往下走，点错会提醒你。</p>
+      </div>
+      <button class="btn primary" type="button" data-tut>▶ 开始交互式教程</button>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">你在玩什么</h3>
+      <p>《大创造时代》(Age of Innovation) 是《神秘大地》(Terra Mystica) 设计师 Helge Ostertag 带来的独立续作，
+      共用同一个奇幻世界观。你扮演一个部族，在这片大陆上<b>把地形改造成自己的家园地形</b>，
+      在上面<b>盖建筑</b>，建筑<b>产出资源</b>，资源再换成<b>分数</b>。</p>
+      <p>一句话概括核心循环：</p>
+      <p class="note key"><span class="lbl">核心循环</span>
+      改造地形 → 建工坊 → 升级成公会 / 学校 / 大学 / 宫殿 → 建筑产出工具、钱、学者、魔力、书 →
+      书买创造片、学者推学科、钱和工具继续扩张 → 6 轮后比分。</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="tile blue">
+        <h4><span class="ico">★</span>它和《神秘大地》的最大不同</h4>
+        <p><b>部族 × 家园地形 × 宫殿能力</b>三者自由搭配。同一局里，你选的部族能力、所在地形、以及能抢到的宫殿片都是独立变量，
+        官方说法是有 7 张计划板、12 个部族、17 种宫殿能力、18 项创造，组合近乎无穷。</p>
+      </div>
+      <div class="tile gold">
+        <h4><span class="ico">书</span>新增资源：书</h4>
+        <p>书分四种颜色，对应四个学科。书可以买<b>创造片</b>（增加能力 / 一次性得分 / 额外建筑），
+        也可以发动版图上的<b>书行动</b>。这是本作让「后期越来越爽」的关键资源。</p>
+      </div>
+      <div class="tile red">
+        <h4><span class="ico">!</span>为什么新手容易劝退</h4>
+        <p>规则书大开本 20 多页、配件极多、术语密集，还要同时管 5 种资源和 6 条轨道。
+        但其实<b>每一轮你只做一件事：挑一个行动</b>。真正的难点是「理解规则」而不是「操作复杂」。</p>
+      </div>
+      <div class="tile green">
+        <h4><span class="ico">✓</span>本手册怎么用</h4>
+        <p>第一次玩：按 02 → 05 的顺序通读一遍，然后开着 <a href="#quickref">速查索引</a> 和
+        <a href="#mistakes">避坑清单</a> 边玩边查。已经会玩：直接看避坑与策略两节。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="lbl">本手册的依据</span>
+      <p>内容依据 Capstone Games 官方英文规则书（AoI rules EN V1.1）与 Board Game Arena 官方规则维基整理。
+      个别数值若与实体规则书有出入，<b>以实体规则书为准</b>；官方规则书 PDF 链接见页面底部。</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 目标 ============ -->
+  <section id="goal">
+    <div class="sec-head"><span class="sec-num">02</span><h2>目标与胜负<span class="en">Goal &amp; Scoring</span></h2></div>
+    <p class="sec-sub">游戏共进行 6 轮。第 6 轮结束后做终局计分，总分最高者获胜。</p>
+
+    <h3>游戏中怎么得分</h3>
+    <div class="grid g3">
+      <div class="tile"><h4><span class="ico">1</span>回合计分片</h4><p>每一轮都有一张「回合计分片」，上面写着本轮的得分目标（例如「每建 1 个工坊得 X 分」）。轮末结算。</p></div>
+      <div class="tile"><h4><span class="ico">2</span>建成城市</h4><p>4 个以上直接相邻、总能力值 ≥7 的建筑组成城市，立刻拿城市片上的分数、资源与一把<b>城市钥匙</b>。</p></div>
+      <div class="tile"><h4><span class="ico">3</span>创造片</h4><p>大多数创造片带一次性得分或每轮额外收入，是后期分数的重要来源。</p></div>
+      <div class="tile"><h4><span class="ico">4</span>宫殿 / 回合奖励 / 能力片</h4><p>各种宫殿片、回合奖励片、能力片上都有分数或得分能力。</p></div>
+      <div class="tile"><h4><span class="ico">5</span>学科推进</h4><p>学科等级本身不直接给分，但每轮结束会根据学科等级给奖励分，终局还有学科领先分。</p></div>
+      <div class="tile"><h4><span class="ico">6</span>升级与特殊行动</h4><p>例如「提升改造」直接给 6 分；某些部族能力、地形能力也会给分。</p></div>
+    </div>
+
+    <h3>终局计分（三项大分）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th class="num">第 1 名</th><th class="num">第 2 名</th><th class="num">第 3 名</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><b>最大连片文明</b></td><td class="num">18 分</td><td class="num">12 分</td><td class="num">6 分</td><td>由建筑 + 桥连接成的最大连续区域，比「建筑数量」。平手则平分。</td></tr>
+          <tr><td><b>每个学科的最高等级</b></td><td class="num">8 分</td><td class="num">4 分</td><td class="num">2 分</td><td>四个学科各算一次，所以学科分最多能拿 4 × 8 = 32 分。</td></tr>
+          <tr><td><b>剩余资源</b></td><td class="num" colspan="3">每 3 个资源 = 1 分</td><td>结算前所有资源会自动折算成钱，再按每 3 钱 1 分计算。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="lbl">关键提醒</span>
+      <p><b>终局计分只认这三项。</b>所以你中后期要盯住两件事：把建筑连成一大片（最大连片），以及在某几个学科上抢到领先。
+      只堆建筑、不连片、不推学科，最后一算分往往会崩。</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 配件 ============ -->
+  <section id="components">
+    <div class="sec-head"><span class="sec-num">03</span><h2>配件与桌面布局<span class="en">Components</span></h2></div>
+    <p class="sec-sub">不用背数量，但要认识这几类东西长什么样、干什么用。</p>
+
+    <h3>五种资源</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>资源</th><th>英文</th><th>主要来源</th><th>主要用途</th></tr></thead>
+        <tbody>
+          <tr><td><b>工具</b>（白色方块）</td><td class="mono">Tools</td><td>工坊</td><td>改造地形、建造与升级建筑</td></tr>
+          <tr><td><b>钱</b>（金币）</td><td class="mono">Coins</td><td>公会、回合奖励片</td><td>建造与升级建筑、买创造片</td></tr>
+          <tr><td><b>学者</b>（米宝）</td><td class="mono">Scholars</td><td>学校、大学</td><td>推进学科、提升改造 / 航海</td></tr>
+          <tr><td><b>魔力</b>（紫色圆片）</td><td class="mono">Power</td><td>公会、宫殿、别人在你旁边盖房</td><td>发动魔力行动、资源转换</td></tr>
+          <tr><td><b>书</b>（四色）</td><td class="mono">Books</td><td>学校 / 大学、能力片、地形能力</td><td>买创造片、发动书行动</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><span class="lbl">对应关系</span>
+      <p>书有四种颜色，分别对应四个学科：<b>银行学（黄）、法学（蓝）、工程学（棕）、医学（灰）</b>。
+      另有「灰色书」可当任意颜色使用。买创造片时要按片子要求配齐对应颜色的书。</p>
+    </div>
+
+    <h3>建筑与能力值</h3>
+    <p>每种建筑都有「能力值（Power value）」，它决定三件事：别人在你旁边盖房能拿多少魔力、你能从别人那里拿多少魔力、以及能不能组成城市。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>建筑</th><th>英文</th><th class="num">能力值</th><th>怎么来 / 作用</th></tr></thead>
+        <tbody>
+          <tr><td><b>工坊</b></td><td class="mono">Workshop</td><td class="num">1</td><td>基础建筑，只能建在你的家园地形上；产工具</td></tr>
+          <tr><td><b>公会</b></td><td class="mono">Guild</td><td class="num">2</td><td>工坊升级而来；产钱，是经济引擎</td></tr>
+          <tr><td><b>学校</b></td><td class="mono">School</td><td class="num">2</td><td>公会升级而来；产学者，并立刻获得 1 张<b>能力片</b></td></tr>
+          <tr><td><b>大学</b></td><td class="mono">University</td><td class="num">3</td><td>学校升级而来；再获得 1 张能力片，并解锁<b>部族专属能力</b></td></tr>
+          <tr><td><b>宫殿</b></td><td class="mono">Palace</td><td class="num">3</td><td>公会升级而来；领取 1 张<b>宫殿片</b>（特殊能力 / 一次性奖励）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note tip"><span class="lbl">和《神秘大地》的差异</span>
+      <p>《神秘大地》里的要塞 / 圣殿，在本作中被<b>「宫殿片 + 部族能力」</b>取代：部族专属能力通过升到大学解锁，
+      而强力的一次性能力与每轮收入则来自宫殿片。部分创造片还能让你额外建造建筑（含纪念碑）。</p>
+    </div>
+
+    <h3>桌面上的主要版块</h3>
+    <div class="grid g3">
+      <div class="tile blue"><h4><span class="ico">图</span>游戏地图</h4><p>六边形地图，双面：一面 2 人局专用（更小更挤），一面 3–5 人用。地图被河流分隔成若干岛屿。</p></div>
+      <div class="tile blue"><h4><span class="ico">轮</span>回合轨道</h4><p>6 个回合位，标出本轮回合计分片与顺位。</p></div>
+      <div class="tile gold"><h4><span class="ico">科</span>学术板</h4><p>四条学科轨道：银行学、法学、工程学、医学。轨道上有魔力奖励格。</p></div>
+      <div class="tile purple"><h4><span class="ico">魔</span>魔力行动</h4><p>版图边缘的格子，花魔力换奖励；每个行动每轮只能被任意一名玩家使用一次。</p></div>
+      <div class="tile purple"><h4><span class="ico">书</span>书行动</h4><p>3 个格子，花书发动，效果随机（每局不同），同样每轮一次。</p></div>
+      <div class="tile green"><h4><span class="ico">奖</span>回合奖励片</h4><p>每人常驻 1 张；跳过时结算并换一张新的，所以随时有 3 张可选。</p></div>
+      <div class="tile green"><h4><span class="ico">城</span>城市片</h4><p>建成城市时领取，给分数 / 资源 / 城市钥匙。</p></div>
+      <div class="tile red"><h4><span class="ico">创</span>创造片</h4><p>花书购买，最多 3 片。给能力、一次性得分或额外建筑。</p></div>
+      <div class="tile red"><h4><span class="ico">宫</span>宫殿片</h4><p>开局摆出若干张，谁先升到宫殿谁先挑，先到先得。</p></div>
+    </div>
+
+    <h3>你的个人计划板</h3>
+    <p>每人一张计划板，是你这一局所有信息的中心。板上有：</p>
+    <ul>
+      <li><b>建筑轨道</b>：每类建筑的可用数量。建筑被拿走 / 退回，会直接影响你的收入。</li>
+      <li><b>地形环</b>：你的家园地形在顶部，其他地形绕成一圈，中间用「铲子」符号分隔——越远的地形改造越贵。</li>
+      <li><b>铲子兑换率</b>：花多少工具能买 1 把铲子。数值越高越省工具。</li>
+      <li><b>航海轨道</b>：0–3 级。等级 = 你的「触及范围（Reach）」，即判定相邻时可以跨过几条河流。</li>
+      <li><b>三只魔力碗</b>（I / II / III）与魔力循环。</li>
+      <li><b>创造片槽位</b>：3 个。</li>
+      <li><b>学科起始标记</b>：放在学术板上使用。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 04 设置 ============ -->
+  <section id="setup">
+    <div class="sec-head"><span class="sec-num">04</span><h2>开局设置<span class="en">Setup</span></h2></div>
+    <p class="sec-sub">第一次玩最推荐的设置方式：<b>先随机分好「部族 + 计划板 + 回合奖励片」的组合，再由玩家挑选</b>。</p>
+
+    <h3>一、通用设置（摆版图）</h3>
+    <ol class="steps">
+      <li><strong>摆好地图</strong>按人数选择地图面：2 人用 2 人面，3–5 人用另一面。2 人局有额外调整（见规则书）。</li>
+      <li><strong>放黑色行动片</strong>抽取黑色行动片，放在地图对应位置。</li>
+      <li><strong>摆回合计分片</strong>把本局用到的回合计分片按顺序摆到回合轨道上。</li>
+      <li><strong>摆终局计分片</strong>抽取终局计分片，放在回合轨道旁边。</li>
+      <li><strong>摆学术板与顺位板</strong>把学术板和顺位板放到版图边上。</li>
+      <li><strong>铺创造片</strong>把创造片按成本分成几列摆到创造展示区（若开局设置需要，还会额外翻开几张）。</li>
+      <li><strong>分类公共供应</strong>把城市片、书、魔力片、地形片、工具、钱分类摆好；其中一部分按规则摆到版图上的指定位置。</li>
+      <li><strong>放中立建筑</strong>把中立建筑摆到地图指定位置。</li>
+      <li><strong>准备宫殿片</strong>找出带标记的那张宫殿片正面朝上放在版图边；其余宫殿片洗混，按规则翻开若干张摆出（这些就是本局可以抢的宫殿片）。</li>
+    </ol>
+
+    <h3>二、分发部族、计划板与回合奖励片</h3>
+    <p>按规则给每位玩家随机配一套：<b>1 张计划板（决定家园地形）+ 1 个部族板块 + 1 张回合奖励片</b>，
+    再随机决定起始玩家。之后每位玩家从自己的组合出发，开始个人设置。</p>
+    <div class="note tip"><span class="lbl">给新手的建议</span>
+      <p>第一次玩不用纠结「最优组合」。先按随机结果玩一局，把流程走顺，比选到强组合重要得多。
+      进阶玩法（自己挑组合 / 轮抽）见规则书「设置变体」一节。</p>
+    </div>
+
+    <h3>三、个人设置</h3>
+    <ol class="steps">
+      <li><strong>摆建筑</strong>把每种建筑放到计划板上对应的空格里（这些空格就是你的「库存」）。</li>
+      <li><strong>摆宫殿占位片</strong>把宫殿占位片放在计划板上，等真正建宫殿时替换掉。</li>
+      <li><strong>摆轨道标记</strong>在计划板的改造轨道、航海轨道上放好标记。</li>
+      <li><strong>分配魔力</strong>把你的魔力标记分配进魔力碗（通常初始分布在碗 I 与碗 II）。</li>
+      <li><strong>拿学者与桥</strong>把学者和桥放到手边备用。</li>
+      <li><strong>拿起始资源</strong>按计划板右上角标注，领取起始工具 / 钱 / 书等资源。</li>
+      <li><strong>放学科标记</strong>在学术板的四条学科轨道「0 级」位置各放 1 个起始标记。</li>
+      <li><strong>放城市标记</strong>在地图上放好你的起始标记（用于建城判定）。</li>
+      <li><strong>放顺位标记</strong>把顺位标记放到顺位板上。</li>
+    </ol>
+
+    <h3>四、放置你的第一个工坊</h3>
+    <p>从起始玩家开始，按顺位依次在地图上放置第一个工坊，然后在第二个指定位置再放一个工坊。
+    具体位置由地图上的预设点与顺位共同决定。放完这两个工坊，游戏正式开始。</p>
+    <div class="note warn"><span class="lbl">易错</span>
+      <p>开局工坊的位置对整局影响极大（关系到能不能尽早建城、能不能吃到别人的相邻奖励）。
+      新手常犯的错是随便放，导致后面扩张路线被堵死。</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 流程 ============ -->
+  <section id="flow">
+    <div class="sec-head"><span class="sec-num">05</span><h2>游戏流程<span class="en">Gameplay</span></h2></div>
+    <p class="sec-sub">6 轮，每轮 3 个阶段。你 90% 的操作时间都在第二阶段。</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 680 168" role="img" aria-label="每轮的三个阶段">
+        <defs>
+          <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#a9761f"/>
+          </marker>
+        </defs>
+        <rect x="14" y="30" width="196" height="96" rx="12" fill="#e9eff9" stroke="#2c5488" stroke-width="1.6"/>
+        <text x="112" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1e3a63">Phase I</text>
+        <text x="112" y="84" text-anchor="middle" font-size="14" fill="#241f19">收入阶段</text>
+        <text x="112" y="105" text-anchor="middle" font-size="11.5" fill="#6d6357">领工具 / 钱 / 学者 / 书</text>
+
+        <rect x="242" y="30" width="196" height="96" rx="12" fill="#f7edd6" stroke="#a9761f" stroke-width="1.6"/>
+        <text x="340" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#a9761f">Phase II</text>
+        <text x="340" y="84" text-anchor="middle" font-size="14" fill="#241f19">行动阶段</text>
+        <text x="340" y="105" text-anchor="middle" font-size="11.5" fill="#6d6357">轮流做 1 个行动，直到全部跳过</text>
+
+        <rect x="470" y="30" width="196" height="96" rx="12" fill="#e6f0e9" stroke="#376b4c" stroke-width="1.6"/>
+        <text x="568" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#376b4c">Phase III</text>
+        <text x="568" y="84" text-anchor="middle" font-size="14" fill="#241f19">学术奖励与准备</text>
+        <text x="568" y="105" text-anchor="middle" font-size="11.5" fill="#6d6357">结算学科奖励、重置行动</text>
+
+        <line x1="212" y1="78" x2="236" y2="78" stroke="#a9761f" stroke-width="2" marker-end="url(#ar)"/>
+        <line x1="440" y1="78" x2="464" y2="78" stroke="#a9761f" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="340" y="152" text-anchor="middle" font-size="12" fill="#6d6357">共 6 轮 · 第 6 轮结束后进入终局计分</text>
+      </svg>
+      <figcaption>每轮的三个阶段</figcaption>
+    </figure>
+
+    <h3>Phase I · 收入阶段</h3>
+    <p>每位玩家同时从公共供应领取资源。收入来源有三处：</p>
+    <ul>
+      <li><b>计划板上「已建成」建筑对应的收入格</b>（建筑在计划板上被拿走的位置，会露出对应的收入图标）。</li>
+      <li><b>你的回合奖励片</b>。</li>
+      <li><b>部分创造片 / 能力片 / 部族能力</b>提供的固定收入。</li>
+    </ul>
+    <div class="note key"><span class="lbl">最容易被忽略的机制</span>
+      <p>计划板上的建筑轨道：建筑被<b>拿走</b>（盖到地图上）时，会露出下面的收入；建筑被<b>退回</b>（升级替换）时，
+      会放回轨道最右端的空位，从而<b>减少</b>对应类型的收入。所以「升级」不只是变强，也会改变你的收入结构。</p>
+    </div>
+
+    <h3>Phase II · 行动阶段</h3>
+    <p>从起始玩家开始，按顺位轮流行动。轮到你时：</p>
+    <ol>
+      <li>可以免费进行任意次<b>资源转换</b>（行动前）。</li>
+      <li>执行 <b>1 个行动</b>（见 <a href="#actions">第 06 节</a>）。</li>
+      <li>可以免费进行任意次<b>资源转换</b>（行动后）。</li>
+    </ol>
+    <p>当所有玩家都选择「跳过」后，行动阶段结束。跳过之后，本轮你不能再行动。</p>
+    <div class="note"><span class="lbl">回合奖励分</span>
+      <p>本轮的「回合计分片」会说明：执行某个特定行动或建造某类建筑可以额外得分。
+      所以每一轮的「最优行动」都在变，开局前先看清本轮回合计分片。</p>
+    </div>
+
+    <h3>Phase III · 学术奖励与下一轮准备</h3>
+    <p>按顺序结算：</p>
+    <ol class="steps">
+      <li><strong>学科奖励</strong>每位玩家根据当轮回合计分片的<b>右半部分</b>，以及自己在指定学科上的等级，获得奖励分。</li>
+      <li><strong>清空学科临时标记</strong>把学术板上因本轮获得的临时标记清理掉（不影响永久等级）。</li>
+      <li><strong>未选回合奖励片加钱</strong>没有被玩家选走的回合奖励片上，各放 1 枚钱，让下一轮更有吸引力。</li>
+      <li><strong>翻回回合奖励片</strong>把本轮用过的回合奖励片翻回正面，供下一轮选择。</li>
+      <li><strong>翻回版图行动片</strong>把本轮被使用过的魔力 / 书行动片翻回正面（重置）。</li>
+    </ol>
+    <p>然后进入下一轮的 Phase I。</p>
+  </section>
+
+  <!-- ============ 06 行动 ============ -->
+  <section id="actions">
+    <div class="sec-head"><span class="sec-num">06</span><h2>九个行动详解<span class="en">Actions</span></h2></div>
+    <p class="sec-sub">这是全手册最重要的一节。每个回合你只需要从这九个里挑一个。</p>
+
+    <div class="grid g2">
+      <div class="tile blue"><h4><span class="ico">1</span>改造地形与建造</h4><p>把一格地形改造成你的家园地形；若该格已成为你的家园地形，可在此建 1 个工坊。</p></div>
+      <div class="tile blue"><h4><span class="ico">2</span>升级建筑</h4><p>工坊→公会；公会→宫殿 或 学校；学校→大学。</p></div>
+      <div class="tile gold"><h4><span class="ico">3</span>提升改造</h4><p>铲子兑换率 +1 级，立刻得 6 分。</p></div>
+      <div class="tile gold"><h4><span class="ico">4</span>提升航海</h4><p>航海 +1 级（最高 3），扩大触及范围。</p></div>
+      <div class="tile purple"><h4><span class="ico">5</span>研发创造</h4><p>花书买 1 张创造片（最多 3 张）。</p></div>
+      <div class="tile purple"><h4><span class="ico">6</span>派遣学者</h4><p>花 1 名学者，在某个学科上前进若干级。</p></div>
+      <div class="tile green"><h4><span class="ico">7</span>魔力 / 书行动</h4><p>使用版图上的魔力行动或书行动，每个每轮限一次。</p></div>
+      <div class="tile green"><h4><span class="ico">8</span>特殊行动</h4><p>由部族、创造片、能力片、回合奖励片等提供的行动。</p></div>
+      <div class="tile red"><h4><span class="ico">9</span>跳过</h4><p>结算回合奖励片分数并换新片，退出本轮。</p></div>
+      <div class="tile red"><h4><span class="ico">＋</span>资源转换（免费）</h4><p>行动前后任意次，用魔力换资源、把高级资源降级。</p></div>
+    </div>
+
+    <h3>① 改造地形与建造 <span class="badge b-blue">Terraform &amp; Build</span></h3>
+    <p>这个行动包含两件事，可以只做前半，也可以一次做完：</p>
+    <h4>改造（Terraform）</h4>
+    <ul>
+      <li>目标格必须是<b>空地</b>（没有建筑），且在<b>你已有建筑的触及范围内</b>，并且<b>不是</b>你的家园地形。</li>
+      <li>成本以「铲子」计算：该地形在你的地形环上离家园地形有几步，就需要几把铲子，<b>最多 3 把</b>。</li>
+      <li>铲子来源：改造轨道上的免费铲 + 花工具买铲（按你的铲子兑换率）+ 魔力 / 书行动 + 特殊行动。
+      <b>只有在免费铲不够时才能买铲</b>。</li>
+      <li>如果你同时得到 2 把及以上铲子，多出来的铲子可以用于<b>另一格</b>地形（同样要在触及范围内）。</li>
+      <li>同一格地形可以被反复改造（每次按剩余距离计铲），但一格一旦改造完成，任何玩家都可以在其上继续建造。</li>
+    </ul>
+    <h4>建工坊（Build a Workshop）</h4>
+    <ul>
+      <li>目标格必须<b>已经是你的家园地形</b>，并且在你已有建筑的触及范围内。</li>
+      <li>你必须在计划板上还有可用的工坊。</li>
+      <li>支付 <b>1 工具 + 2 钱</b>，把计划板上最左侧的工坊放到该格。</li>
+    </ul>
+    <div class="note warn"><span class="lbl">两个高频错误</span>
+      <p>1. <b>一个行动只能建 1 个工坊。</b>即使你手里有 2 把铲子，第二把只能用来改造另一格，不能再盖第二个工坊。<br>
+      2. 改造 + 建造是<b>同一个行动</b>。你不能「先改造，下一回合再建」——改造完的格子如果本轮不建，就留到以后（别人也能用）。</p>
+    </div>
+    <div class="note tip"><span class="lbl">省钱技巧</span>
+      <p>把建筑盖在<b>其他玩家建筑旁边</b>可以降低升级费用，同时对方可以选择获得魔力（但要扣分）。
+      这就是本作「既要贴邻居、又不能被邻居堵死」的核心张力。</p>
+    </div>
+
+    <h3>② 升级建筑 <span class="badge b-blue">Upgrade a Building</span></h3>
+    <p>一个行动只能升级 1 个建筑 1 级。升级视为「建造新建筑」。</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 680 190" role="img" aria-label="建筑升级链">
+        <defs>
+          <marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#2c5488"/>
+          </marker>
+        </defs>
+        <rect x="20" y="72" width="120" height="56" rx="10" fill="#e9eff9" stroke="#2c5488" stroke-width="1.6"/>
+        <text x="80" y="96" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a63">工坊</text>
+        <text x="80" y="115" text-anchor="middle" font-size="11" fill="#6d6357">Workshop · 1</text>
+
+        <rect x="200" y="72" width="120" height="56" rx="10" fill="#e9eff9" stroke="#2c5488" stroke-width="1.6"/>
+        <text x="260" y="96" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a63">公会</text>
+        <text x="260" y="115" text-anchor="middle" font-size="11" fill="#6d6357">Guild · 2</text>
+
+        <rect x="400" y="20" width="130" height="56" rx="10" fill="#f7edd6" stroke="#a9761f" stroke-width="1.6"/>
+        <text x="465" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#a9761f">学校</text>
+        <text x="465" y="63" text-anchor="middle" font-size="11" fill="#6d6357">School · 2 → 大学</text>
+
+        <rect x="400" y="124" width="130" height="56" rx="10" fill="#efe9f7" stroke="#6a4a8e" stroke-width="1.6"/>
+        <text x="465" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#6a4a8e">宫殿</text>
+        <text x="465" y="167" text-anchor="middle" font-size="11" fill="#6d6357">Palace · 3</text>
+
+        <rect x="556" y="20" width="110" height="56" rx="10" fill="#e6f0e9" stroke="#376b4c" stroke-width="1.6"/>
+        <text x="611" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#376b4c">大学</text>
+        <text x="611" y="63" text-anchor="middle" font-size="11" fill="#6d6357">University · 3</text>
+
+        <line x1="144" y1="100" x2="194" y2="100" stroke="#2c5488" stroke-width="2" marker-end="url(#ar2)"/>
+        <line x1="324" y1="92" x2="394" y2="56" stroke="#2c5488" stroke-width="2" marker-end="url(#ar2)"/>
+        <line x1="324" y1="108" x2="394" y2="146" stroke="#2c5488" stroke-width="2" marker-end="url(#ar2)"/>
+        <line x1="534" y1="48" x2="550" y2="48" stroke="#2c5488" stroke-width="2" marker-end="url(#ar2)"/>
+        <text x="164" y="140" text-anchor="middle" font-size="10.5" fill="#6d6357">2工具 6钱</text>
+        <text x="356" y="52" text-anchor="middle" font-size="10.5" fill="#6d6357">3工具 5钱</text>
+        <text x="356" y="176" text-anchor="middle" font-size="10.5" fill="#6d6357">4工具 6钱</text>
+        <text x="542" y="176" text-anchor="middle" font-size="10.5" fill="#6d6357">5工具 6钱</text>
+      </svg>
+      <figcaption>建筑升级链与基础费用（与他人建筑相邻时费用降低）</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>升级</th><th class="num">工具</th><th class="num">钱</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>工坊 → 公会</td><td class="num">2</td><td class="num">6 → 3</td><td>若该工坊至少与 1 个<b>其他玩家</b>的建筑相邻，费用从 6 钱降为 3 钱</td></tr>
+          <tr><td>公会 → 学校</td><td class="num">3</td><td class="num">5</td><td>立刻获得 1 张能力片</td></tr>
+          <tr><td>公会 → 宫殿</td><td class="num">4</td><td class="num">6</td><td>领取 1 张宫殿片（从开局摆出的宫殿片中选，先到先得）</td></tr>
+          <tr><td>学校 → 大学</td><td class="num">5</td><td class="num">6</td><td>再获得 1 张能力片，并解锁部族专属能力</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="lbl">升级的隐藏代价</span>
+      <p>升级时必须把<b>旧建筑放回计划板最右端的空位</b>。这会减少对应建筑类型的收入。
+      所以「升级」不是纯赚——它是用收入换能力。新手常把收入升没了，结果后面资源断档。</p>
+    </div>
+
+    <h3>③ 提升改造 <span class="badge b-gold">Upgrade Terraforming</span></h3>
+    <p>支付费用，把铲子兑换率上调 1 级，<b>立刻获得 6 分</b>。之后买铲所需工具更少。
+    费用由计划板标注（工具 / 学者 / 钱）。</p>
+
+    <h3>④ 提升航海 <span class="badge b-gold">Increase Sailing</span></h3>
+    <p>支付费用，航海等级 +1（从 0 到最高 3）。航海等级 = 你的<b>触及范围</b>，
+    即在判定「相邻 / 可达」时可以跨过的河流格数。费用通常是学者 + 钱。</p>
+
+    <h3>⑤ 研发创造 <span class="badge b-purple">Develop an Innovation</span></h3>
+    <ul>
+      <li>支付<b>至少 5 本书</b>，颜色组合必须匹配你想买的那张创造片。</li>
+      <li>如果你<b>还没建宫殿</b>，要多付 <b>5 钱</b>。</li>
+      <li>你每多买一张创造片，书的需求就 <b>+1 本</b>。</li>
+      <li>创造片放在计划板的 3 个槽位上，<b>最多 3 张</b>，槽位满了就不能再买。</li>
+      <li>创造片效果三类：特殊能力 / 一次性得分 / 允许额外建造建筑。</li>
+    </ul>
+    <div class="note tip"><span class="lbl">新手要点</span>
+      <p>「先建宫殿再买创造片」能省 5 钱，是很常见的节奏。创造片的效果每局固定但搭配随机，
+      买之前先想清楚它服务的是「收入」还是「终局得分」。</p>
+    </div>
+
+    <h3>⑥ 派遣学者 <span class="badge b-purple">Send a Scholar</span></h3>
+    <ul>
+      <li>支付 1 名学者，在<b>某一条学科轨道</b>上把起始标记前进若干级（按行动允许的级数）。</li>
+      <li>前进过程中若经过带魔力的奖励格，立即获得对应魔力。</li>
+      <li>学者留在学术板上直到游戏结束，不会被收回。</li>
+      <li>同一学科不能重复放置学者（每条轨道你只能放一次）。</li>
+    </ul>
+    <div class="note key"><span class="lbl">等级门槛</span>
+      <p>想把某学科推到 <b>8 级</b>，必须有一把<b>城市钥匙</b>，而且<b>每个学科需要各自独立的钥匙</b>。
+      没有钥匙时，超过 7 级的进度作废。每条学科<b>只有一名玩家</b>能到 12 级。</p>
+    </div>
+
+    <h3>⑦ 魔力 / 书行动 <span class="badge b-green">Power &amp; Book Actions</span></h3>
+    <p>版图上有两类公共行动格：</p>
+    <ul>
+      <li><b>魔力行动</b>：花魔力（把魔力从碗 III 循环回碗 I）换取奖励，例如额外铲子、工具、学者、桥等。</li>
+      <li><b>书行动</b>：花书发动，效果每局随机，通常更强。</li>
+    </ul>
+    <p>每一个行动格<b>每轮只能被任意一名玩家使用一次</b>——用过就翻面，轮末重置。所以这里存在抢行动位。</p>
+
+    <h3>⑧ 特殊行动 <span class="badge b-green">Special Action</span></h3>
+    <p>由你的<b>部族能力、创造片、能力片、宫殿片、回合奖励片</b>等提供的行动，规则与公共行动类似：
+    通常每轮限用一次，用完要放一个标记提醒自己。</p>
+
+    <h3>⑨ 跳过 <span class="badge b-red">Pass</span></h3>
+    <ol>
+      <li>结算你回合奖励片上的<b>奖励分</b>。</li>
+      <li>从场上剩余（未被选走）的回合奖励片中<b>选一张新的</b>。</li>
+      <li>如果你是<b>本轮第一个跳过</b>的玩家，你将成为<b>下一轮的起始玩家</b>。</li>
+      <li>本轮你不能再进行任何行动。</li>
+    </ol>
+    <div class="note"><span class="lbl">为什么「先跳过」不一定是坏事</span>
+      <p>先跳过可以抢先选到最好的回合奖励片，并且拿到下一轮的起始位置。
+      但代价是提前放弃本轮剩余的行动机会。什么时候跳过，是本作最微妙的决策之一。</p>
+    </div>
+
+    <h3>免费行动：资源转换 <span class="badge b-red">Resource Conversion</span></h3>
+    <p>在你的行动<b>之前和之后</b>，都可以免费进行任意次资源转换，例如：</p>
+    <ul>
+      <li>用<b>魔力</b>换取工具 / 钱 / 学者。</li>
+      <li>把高级资源<b>降级</b>成低级资源（例如学者 → 工具 / 钱，工具或书 → 钱）。</li>
+    </ul>
+    <div class="note warn"><span class="lbl">注意</span>
+      <p>资源转换只能按规则允许的方向与比例进行，不能随意「1 换 1」。
+      具体比例印在版图 / 计划板上，请以实体规则为准。</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 系统 ============ -->
+  <section id="systems">
+    <div class="sec-head"><span class="sec-num">07</span><h2>六个关键系统<span class="en">Core Systems</span></h2></div>
+    <p class="sec-sub">理解这六个系统，规则书里 80% 的疑问都会自动消失。</p>
+
+    <h3>一、魔力循环 <span class="badge b-purple">The Power Cycle</span></h3>
+    <p>魔力不是「有多少用多少」，而是在三只碗之间流动。</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 680 222" role="img" aria-label="魔力循环三只碗">
+        <defs>
+          <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#6a4a8e"/>
+          </marker>
+        </defs>
+        <circle cx="120" cy="96" r="46" fill="#efe9f7" stroke="#6a4a8e" stroke-width="1.8"/>
+        <text x="120" y="90" text-anchor="middle" font-size="16" font-weight="bold" fill="#6a4a8e">碗 I</text>
+        <text x="120" y="112" text-anchor="middle" font-size="11" fill="#6d6357">不可花费</text>
+
+        <circle cx="340" cy="96" r="46" fill="#efe9f7" stroke="#6a4a8e" stroke-width="1.8"/>
+        <text x="340" y="90" text-anchor="middle" font-size="16" font-weight="bold" fill="#6a4a8e">碗 II</text>
+        <text x="340" y="112" text-anchor="middle" font-size="11" fill="#6d6357">过渡</text>
+
+        <circle cx="560" cy="96" r="46" fill="#e2d7f2" stroke="#6a4a8e" stroke-width="2.4"/>
+        <text x="560" y="90" text-anchor="middle" font-size="16" font-weight="bold" fill="#6a4a8e">碗 III</text>
+        <text x="560" y="112" text-anchor="middle" font-size="11" fill="#6d6357">可花费</text>
+
+        <line x1="168" y1="80" x2="292" y2="80" stroke="#6a4a8e" stroke-width="2" marker-end="url(#ar3)"/>
+        <line x1="388" y1="80" x2="512" y2="80" stroke="#6a4a8e" stroke-width="2" marker-end="url(#ar3)"/>
+        <text x="230" y="68" text-anchor="middle" font-size="11" fill="#6d6357">获得魔力</text>
+        <text x="450" y="68" text-anchor="middle" font-size="11" fill="#6d6357">获得魔力</text>
+
+        <path d="M560,142 C560,196 120,196 120,142" fill="none" stroke="#a23f2b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+        <text x="340" y="214" text-anchor="middle" font-size="11.5" fill="#a23f2b">花费魔力：碗 III → 碗 I</text>
+      </svg>
+      <figcaption>获得魔力只能往右推一格；花费魔力只能把碗 III 的魔力推回碗 I</figcaption>
+    </figure>
+    <div class="note key"><span class="lbl">三条铁律</span>
+      <p>1. <b>只有碗 III 的魔力可以花。</b><br>
+      2. 获得魔力时：若碗 I 有魔力，则从碗 I 推一枚到碗 II；若碗 I 空了但碗 II 有，则从碗 II 推一枚到碗 III；若全在碗 III，则<b>什么都得不到</b>。<br>
+      3. 花掉的魔力不会消失，而是回到碗 I，需要重新循环才能再用。</p>
+    </div>
+
+    <h3>二、相邻与触及范围 <span class="badge b-blue">Adjacency &amp; Reach</span></h3>
+    <ul>
+      <li><b>相邻（Adjacent）</b>：两个六边形<b>共边</b>才算相邻。中间隔着河流格不算，除非你有桥或航海能力。</li>
+      <li><b>触及范围（Reach）</b>：等于你的航海等级。判定「可达」时可以跨过的河流格数。用航海把两块被河隔开的领地连起来，是常见的扩张手段。</li>
+      <li><b>桥</b>：跨越河流格，把两侧建筑连成一片。桥会影响「连片」的判定。</li>
+    </ul>
+
+    <h3>三、建城 <span class="badge b-gold">Found a City</span></h3>
+    <ul>
+      <li>当你拥有<b>4 个及以上直接相邻的建筑</b>，且这些建筑的<b>能力值总和 ≥ 7</b> 时，自动建城。</li>
+      <li>若城市中包含<b>大学</b>这类高能力值建筑，所需建筑数量可以减少（规则书中有具体说明，含特殊建筑时门槛更低）。</li>
+      <li>建城后立刻领取 1 张<b>城市片</b>：上面有分数、一次性资源，以及一把<b>城市钥匙</b>。</li>
+      <li>已经属于某个城市的建筑，不能被用来组成新城市；但两个城市可以合并。</li>
+    </ul>
+    <div class="note warn"><span class="lbl">为什么城市这么重要</span>
+      <p>城市钥匙是推进学科到 8 级以上的硬门槛。没有城市，你的学科就卡在 7 级，
+      终局的学科领先分（8/4/2）基本无缘。所以「尽早建城」几乎是所有流派的共识。</p>
+    </div>
+
+    <h3>四、学科 <span class="badge b-purple">Science Disciplines</span></h3>
+    <p>四条轨道：<b>银行学（黄）、法学（蓝）、工程学（棕）、医学（灰）</b>。每条 12 级。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>里程碑</th><th>效果</th></tr></thead>
+        <tbody>
+          <tr><td>达到 3 / 5 / 7 / 12 级</td><td>立即获得一次性的<b>魔力循环</b>奖励（按学术板标注的数量）</td></tr>
+          <tr><td>想升到 8 级</td><td>必须消耗<b>一把城市钥匙</b>；每个学科需要各自独立的钥匙</td></tr>
+          <tr><td>9 级及以上</td><td>每轮 Phase I 收入阶段获得额外收入</td></tr>
+          <tr><td>12 级</td><td>全游戏<b>仅一名玩家</b>可以到达；之后其他玩家最多到 11 级</td></tr>
+          <tr><td>每轮 Phase III</td><td>按当轮回合计分片的右半部分 + 你的学科等级获得奖励分</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>五、创造片 <span class="badge b-red">Innovation Tiles</span></h3>
+    <p>创造片是本作的「构筑」核心。买片成本 = 对应颜色的书（至少 5 本）+ 没宫殿时的 5 钱附加费 + 每多一片 +1 本。
+    效果分三类：</p>
+    <ul>
+      <li><b>特殊行动</b>：提供一个新的每轮可用行动（例如换取资源）。</li>
+      <li><b>一次性奖励 / 每轮收入</b>：立刻得分或持续产资源。</li>
+      <li><b>额外建筑</b>：允许你在任意合法格子上直接建造某类建筑（含纪念碑等）。</li>
+    </ul>
+
+    <h3>六、宫殿与能力片 <span class="badge b-gold">Palace &amp; Competency</span></h3>
+    <ul>
+      <li><b>宫殿片</b>：升级到宫殿时，从开局摆出的宫殿片中挑 1 张，提供强力的一次性能力或每轮收入。
+      先升到宫殿的人先挑，所以「抢宫殿」有时是节奏关键。</li>
+      <li><b>能力片</b>：升级到<b>学校或大学</b>时各获得 1 张，提供资源、分数或小能力。</li>
+      <li>两者都不与特定部族绑定，但会显著影响你的发展方向。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 08 名词解释 ============ -->
+  <section id="glossary">
+    <div class="sec-head"><span class="sec-num">08</span><h2>名词解释<span class="en">Glossary</span></h2></div>
+    <p class="sec-sub">中英对照速查。支持搜索（中英文都可以搜）与分类筛选。</p>
+
+    <div class="glossary-tools">
+      <label class="search">
+        <span class="mag">⌕</span>
+        <input type="search" id="gsearch" placeholder="搜索名词，例如：宫殿 / palace / 铲子 / reach" autocomplete="off">
+      </label>
+      <div class="filter-pills" id="gpills">
+        <button class="pill on" data-cat="all">全部</button>
+        <button class="pill" data-cat="资源">资源</button>
+        <button class="pill" data-cat="建筑">建筑</button>
+        <button class="pill" data-cat="行动">行动</button>
+        <button class="pill" data-cat="系统">系统</button>
+        <button class="pill" data-cat="版图">版图</button>
+        <button class="pill" data-cat="地图">地图</button>
+      </div>
+      <span class="gloss-count" id="gcount"></span>
+    </div>
+
+    <div class="gloss-list" id="glist"></div>
+    <div class="g-empty" id="gempty" style="display:none">没有匹配的名词，换个关键词试试。</div>
+  </section>
+
+  <!-- ============ 09 避坑 ============ -->
+  <section id="mistakes">
+    <div class="sec-head"><span class="sec-num">09</span><h2>容易村规的 20 个点<span class="en">Common Mistakes</span></h2></div>
+    <p class="sec-sub">「村规」= 因为记错规则而玩错。以下每一条都标注了常见误解与正确规则。</p>
+
+    <div id="mistakelist"></div>
+
+    <div class="note warn"><span class="lbl">一句话总结</span>
+      <p>最容易出错的集中在三处：<b>①「一个行动只能做一件事」的边界；②魔力只能从碗 III 花；③升级会改变收入。</b>
+      开局前把这三条念一遍，能避免 80% 的争议。</p>
+    </div>
+  </section>
+
+  <!-- ============ 10 速查 ============ -->
+  <section id="quickref">
+    <div class="sec-head"><span class="sec-num">10</span><h2>速查索引<span class="en">Quick Reference</span></h2></div>
+    <p class="sec-sub">玩到一半翻规则书太慢？把这一节收藏起来。</p>
+
+    <h3>建筑与升级费用</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>操作</th><th class="num">工具</th><th class="num">钱</th><th>附加效果 / 备注</th></tr></thead>
+        <tbody>
+          <tr><td>建工坊</td><td class="num">1</td><td class="num">2</td><td>必须在你的家园地形 + 触及范围内</td></tr>
+          <tr><td>工坊 → 公会</td><td class="num">2</td><td class="num">6（相邻他人建筑时 3）</td><td>产钱，收入阶段给你钱</td></tr>
+          <tr><td>公会 → 学校</td><td class="num">3</td><td class="num">5</td><td>+1 能力片</td></tr>
+          <tr><td>公会 → 宫殿</td><td class="num">4</td><td class="num">6</td><td>+1 宫殿片（先到先得）</td></tr>
+          <tr><td>学校 → 大学</td><td class="num">5</td><td class="num">6</td><td>+1 能力片，解锁部族专属能力</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>九个行动一览</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th class="num">#</th><th>行动</th><th>费用</th><th>一句话效果</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>改造地形与建造</td><td>铲子 / 1工具+2钱</td><td>改一格地形，并可在此建 1 个工坊</td></tr>
+          <tr><td class="num">2</td><td>升级建筑</td><td>工具 + 钱</td><td>按升级链升级 1 个建筑 1 级</td></tr>
+          <tr><td class="num">3</td><td>提升改造</td><td>工具 / 学者 / 钱</td><td>铲子兑换率 +1，立即得 6 分</td></tr>
+          <tr><td class="num">4</td><td>提升航海</td><td>学者 + 钱</td><td>航海 +1（最高 3），扩大触及范围</td></tr>
+          <tr><td class="num">5</td><td>研发创造</td><td>书（≥5 本，可 +5 钱）</td><td>获得 1 张创造片，最多 3 张</td></tr>
+          <tr><td class="num">6</td><td>派遣学者</td><td>1 学者</td><td>在一条学科轨道上前进若干级</td></tr>
+          <tr><td class="num">7</td><td>魔力 / 书行动</td><td>魔力 或 书</td><td>使用版图公共行动，每个每轮一次</td></tr>
+          <tr><td class="num">8</td><td>特殊行动</td><td>视来源</td><td>部族 / 创造片 / 能力片等提供的行动</td></tr>
+          <tr><td class="num">9</td><td>跳过</td><td>—</td><td>结算奖励片分数、换新片、退出本轮</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>建城条件</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>条件</th><th>数值</th></tr></thead>
+        <tbody>
+          <tr><td>最少建筑数</td><td>4 个<b>直接相邻</b>的建筑</td></tr>
+          <tr><td>能力值总和</td><td>≥ 7</td></tr>
+          <tr><td>含高能力值建筑</td><td>含大学等建筑时可减少所需建筑数量（详见规则书）</td></tr>
+          <tr><td>奖励</td><td>城市片（分数 + 一次性资源 + <b>1 把城市钥匙</b>）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>学科里程碑</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>等级</th><th>效果</th></tr></thead>
+        <tbody>
+          <tr><td class="num">3 / 5 / 7 / 12</td><td>立即获得一次性魔力循环奖励</td></tr>
+          <tr><td class="num">8</td><td>需要消耗 1 把城市钥匙（每个学科各自独立）</td></tr>
+          <tr><td class="num">9+</td><td>每轮收入阶段获得额外收入</td></tr>
+          <tr><td class="num">12</td><td>全游戏仅 1 人可达</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>终局计分</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th class="num">1st</th><th class="num">2nd</th><th class="num">3rd</th></tr></thead>
+        <tbody>
+          <tr><td>最大连片文明</td><td class="num">18</td><td class="num">12</td><td class="num">6</td></tr>
+          <tr><td>单个学科最高等级（共 4 个学科）</td><td class="num">8</td><td class="num">4</td><td class="num">2</td></tr>
+          <tr><td>剩余资源</td><td class="num" colspan="3">每 3 个资源 = 1 分（先全部折算成钱）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>别人在你旁边盖房：魔力与代价</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>相邻建筑能力值</th><th class="num">你可获得的魔力</th><th class="num">你需要支付的分</th></tr></thead>
+        <tbody>
+          <tr><td>1（工坊）</td><td class="num">1</td><td class="num">0</td></tr>
+          <tr><td>2（公会 / 学校）</td><td class="num">2</td><td class="num">1</td></tr>
+          <tr><td>3（宫殿 / 大学）</td><td class="num">3</td><td class="num">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><span class="lbl">说明</span>
+      <p>公式：<b>获得的魔力 = 相邻敌方建筑的能力值；支付的分 = 获得的魔力 − 1</b>。
+      这是<b>可选</b>的——你可以选择不拿魔力、不扣分。</p>
+    </div>
+  </section>
+
+  <!-- ============ 11 策略 ============ -->
+  <section id="strategy">
+    <div class="sec-head"><span class="sec-num">11</span><h2>新手策略起步<span class="en">Strategy</span></h2></div>
+    <p class="sec-sub">不追求最优解，先建立「每轮该干什么」的判断力。</p>
+
+    <h3>开局四大目标</h3>
+    <p>第一轮通常围绕以下四个目标之一展开（能同时完成两个就很强）：</p>
+    <div class="grid g2">
+      <div class="tile gold"><h4><span class="ico">A</span>宫殿 + 3~4 个工坊</h4><p>最快拿到宫殿片，抢到强力一次性能力。需要额外工具与铲子。</p></div>
+      <div class="tile blue"><h4><span class="ico">B</span>学校 + 3~4 个工坊</h4><p>拿能力片，其中「给 2 把铲子」的能力片能显著加速扩张。这是最容易达成的开局。</p></div>
+      <div class="tile purple"><h4><span class="ico">C</span>买 1 张创造片</h4><p>需要 5 本书，并尽量先有宫殿省下 5 钱。适合书来得快的组合。</p></div>
+      <div class="tile red"><h4><span class="ico">D</span>宫殿 + 快速建城</h4><p>把 1 个公会升成贸易站级别后立刻凑够建城条件，抢城市钥匙。</p></div>
+    </div>
+    <div class="note tip"><span class="lbl">资源需求速记</span>
+      <p>「宫殿 + 3 工坊」≈ 需要约 2 个工具 + 2 把铲子。这些额外资源通常来自：回合奖励片、魔力行动、部分宫殿片、部族能力、地形能力。
+      开局前先数清楚自己这套组合能从哪里凑出这 2 工具 2 铲子。</p>
+    </div>
+
+    <h3>中盘（第 2–4 轮）该干什么</h3>
+    <ul>
+      <li>把目标定在<b>2 座城市 + 3 所学校 + 1 张收入型创造片</b>，其余补工坊（4~5 个）。</li>
+      <li>或者走扩张流：少建学校、多铺工坊，用数量换连片面积。</li>
+      <li>能力片优先考虑：给铲子的、给 2 本书的、以及「学者换学科分」这类能转化成终局分的。</li>
+    </ul>
+
+    <h3>收官（第 5–6 轮）该干什么</h3>
+    <p>中后期的主要任务从「扩张」切换成<b>「把资源换成分数」</b>。常见转化方式：</p>
+    <ul>
+      <li>回合计分片上的得分目标（尤其是铲子 / 学科 / 工坊类）。</li>
+      <li>部族能力（部分部族的得分能力在后期才爆发）。</li>
+      <li>特殊行动 / 能力片上的固定得分（例如学者换分、工坊换分、降级换分）。</li>
+      <li>创造片上的得分能力。</li>
+      <li>建城：单纯建城效率不高，最好配合当轮的回合计分片一起做。</li>
+    </ul>
+
+    <h3>选址三条经验</h3>
+    <ol>
+      <li><b>贴着别人，但别被围死。</b>相邻能省钱、能拿魔力，但地盘被夹住就再也扩不出去。</li>
+      <li><b>优先朝「容易连片」的方向铺。</b>终局最大连片值 18 分，是单项最高的分数来源。</li>
+      <li><b>提前规划城市形状。</b>建城要求 4 个直接相邻建筑，所以布局要能凑出「十字 / 三角」这种紧凑形状。</li>
+    </ol>
+
+    <h3>新手最常犯的三个策略错误</h3>
+    <div class="grid g3">
+      <div class="tile red"><h4><span class="ico">✗</span>只扩张，不连片</h4><p>建筑铺得满地图都是，但最大连片很小，终局 18 分拱手让人。</p></div>
+      <div class="tile red"><h4><span class="ico">✗</span>忽略学科</h4><p>学科既有每轮奖励分，又有终局的 8/4/2，还是钥匙的门槛。完全不推学科，等于放弃两大块分。</p></div>
+      <div class="tile red"><h4><span class="ico">✗</span>升级把收入升没了</h4><p>盲目升级导致工具 / 钱收入断档，后面几轮几乎无法行动。</p></div>
+    </div>
+
+    <h3>部族一览（12 个）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>部族</th><th>英文</th><th>能力要点</th></tr></thead>
+        <tbody>
+          <tr><td><b>受祝福者</b></td><td class="mono">Blessed</td><td>开局四条学科各 +1 级；每轮结算时学科等级额外 +3</td></tr>
+          <tr><td><b>猫人</b></td><td class="mono">Felines</td><td>开局银行学与医学 +1 级；建城时可在任意学科推进 3 级并获得 1 本书</td></tr>
+          <tr><td><b>哥布林</b></td><td class="mono">Goblins</td><td>开局银行学与工程学 +1 级、+1 工具；每次使用铲子得 2 钱</td></tr>
+          <tr><td><b>幻术师</b></td><td class="mono">Illusionists</td><td>开局医学 +2 级；魔力行动费用 −1，且做魔力行动得 3 分</td></tr>
+          <tr><td><b>发明家</b></td><td class="mono">Inventors</td><td>开局免费获得 1 张能力片</td></tr>
+          <tr><td><b>蜥蜴人</b></td><td class="mono">Lizards</td><td>开局学科推进；建城时可免费改造 1 格并免费建 1 个工坊</td></tr>
+          <tr><td><b>鼹鼠</b></td><td class="mono">Moles</td><td>开局工程学 +2 级；可「挖隧道」跳格，并能花工具造特殊桥</td></tr>
+          <tr><td><b>僧侣</b></td><td class="mono">Monks</td><td>开局法学 +1 级；开局改为放置大学而非工坊</td></tr>
+          <tr><td><b>航海家</b></td><td class="mono">Navigators</td><td>开局法学 +3 级；在河岸边建工坊得 2 分</td></tr>
+          <tr><td><b>奥马尔</b></td><td class="mono">Omar</td><td>开局学科推进；收入阶段额外得 2 魔力 + 2 钱</td></tr>
+          <tr><td><b>哲学家</b></td><td class="mono">Philosophers</td><td>开局银行学 +2 级；获得能力片时额外得同色书；特殊行动可得 1 本书</td></tr>
+          <tr><td><b>灵能者</b></td><td class="mono">Psychics</td><td>开局学科推进 +1 工具；特殊行动：得 5 魔力后立刻再行动一次</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><span class="lbl">说明</span>
+      <p>上表为部族能力的<b>要点概括</b>，便于新手快速感受差异；精确文字请以你的实体部族板块为准。</p>
+    </div>
+  </section>
+
+  <!-- ============ 12 附录 ============ -->
+  <section id="appendix">
+    <div class="sec-head"><span class="sec-num">12</span><h2>附录<span class="en">Appendix</span></h2></div>
+
+    <h3>七种地形与开局奖励</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>地形</th><th>英文</th><th>开局奖励 / 能力</th></tr></thead>
+        <tbody>
+          <tr><td>沙漠</td><td class="mono">Desert</td><td>设置完成后获得 1 把铲子</td></tr>
+          <tr><td>森林</td><td class="mono">Forest</td><td>四条学科各 +1 级，并获得 1 魔力</td></tr>
+          <tr><td>湖泊</td><td class="mono">Lake</td><td>航海 +1 级</td></tr>
+          <tr><td>山脉</td><td class="mono">Mountain</td><td>每轮收入阶段额外 +2 钱；第一个公会产 3 钱而非 2 钱</td></tr>
+          <tr><td>平原</td><td class="mono">Plains</td><td>「提升改造」行动费用更低</td></tr>
+          <tr><td>沼泽</td><td class="mono">Swamp</td><td>设置完成后获得 1 名学者 + 2 魔力</td></tr>
+          <tr><td>荒地</td><td class="mono">Wasteland</td><td>设置完成后获得 1 工具 + 1 本书；第二张创造片免去额外书费</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>四个学科</h3>
+    <div class="grid g4">
+      <div class="tile gold"><h4><span class="ico">黄</span>银行学</h4><p class="mono">Banking</p></div>
+      <div class="tile blue"><h4><span class="ico">蓝</span>法学</h4><p class="mono">Law</p></div>
+      <div class="tile red"><h4><span class="ico">棕</span>工程学</h4><p class="mono">Engineering</p></div>
+      <div class="tile purple"><h4><span class="ico">灰</span>医学</h4><p class="mono">Medicine</p></div>
+    </div>
+
+    <h3>常见问题</h3>
+    <details class="acc"><summary>只有 2 个人能玩吗？</summary>
+      <div class="acc-body">可以，游戏支持 1–5 人。2 人局使用地图的 2 人面，并有额外的设置调整（例如中立建筑与顺位规则的变化），详见规则书「2 人游戏」一节。</div>
+    </details>
+    <details class="acc"><summary>没玩过《神秘大地》能直接玩吗？</summary>
+      <div class="acc-body">完全可以，而且更推荐。本作是独立游戏，规则自成体系。反而玩过前作的人容易「想当然」而记错规则，建议按本手册重新过一遍。</div>
+    </details>
+    <details class="acc"><summary>一局大概多久？</summary>
+      <div class="acc-body">官方标注约 40 分钟 / 人。3 人局约 2 小时，4–5 人局常见 2.5–3.5 小时。第一次玩建议预留 3 小时。</div>
+    </details>
+    <details class="acc"><summary>书是怎么来的？</summary>
+      <div class="acc-body">主要来自：升级到学校 / 大学、能力片、部分地形与部族能力、部分创造片与宫殿片，以及书行动。</div>
+    </details>
+    <details class="acc"><summary>为什么我明明有魔力却用不了？</summary>
+      <div class="acc-body">因为只有<b>碗 III</b> 的魔力可以花费。碗 I 和碗 II 的魔力必须先通过「获得魔力」逐步推到碗 III，才能使用。这是新手最常见的卡点。</div>
+    </details>
+    <details class="acc"><summary>能一次改造多格地形吗？</summary>
+      <div class="acc-body">一个行动通常只改造 1 格。但如果你一次获得 2 把及以上铲子，多余的铲子可以用于另一格（仍需在触及范围内），但<b>只能建 1 个工坊</b>。</div>
+    </details>
+  </section>
+
+  </main>
+</div>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <p style="margin:0"><b>大创造时代 Age of Innovation · 新手入门手册</b></p>
+    <p style="margin:6px 0 0">本页为面向新手的规则整理与教学页，非官方出版物料。规则数值以实体规则书为准。</p>
+    <div class="src">
+      <a href="https://cdn.shopify.com/s/files/1/0947/3907/1278/files/AoI_rules_EN_V1-1_reduced.pdf" target="_blank" rel="noopener">官方规则书 PDF（英文）</a>
+      <a href="https://boardgamearena.com/gamepanel?game=ageofinnovation" target="_blank" rel="noopener">Board Game Arena 在线版</a>
+      <a href="https://boardgamegeek.com/boardgame/383538/age-of-innovation" target="_blank" rel="noopener">BoardGameGeek 词条</a>
+      <a href="https://www.feuerland-spiele.de/" target="_blank" rel="noopener">Feuerland Spiele 官网</a>
+    </div>
+    <p style="margin-top:18px;font-size:12.5px">设计 Helge Ostertag · 美术 Álvaro Calvo Escudero / Lukas Siegmon · 出版 Feuerland Spiele (2023)</p>
+  </div>
+</footer>
+
+<button id="totop" aria-label="回到顶部">↑</button>
+<script src="assets/app.js"></script>
+<script src="assets/tutorial.js"></script>
+</body>
+</html>
